@@ -1,9 +1,11 @@
 package transport;
 
+import java.time.LocalDate;
 import java.util.regex.Pattern;
 
 public class Car {
-   private String brand;
+    public Car.Insurance insurance;
+    private String brand;
    private String model;
     double engineVolume;
     String color;
@@ -13,6 +15,8 @@ public class Car {
     String registrationNumber;
     private int seatingCapacity;
     String summerOrWinterRubber;
+
+
 
     public static class Key{
         private boolean remoteEngineStart;
@@ -27,6 +31,67 @@ public class Car {
         }
     }
 
+    public static class Insurance{
+        private int duration;
+        private int cost;
+        private String number;
+
+        public int getDuration() {
+            return duration;
+        }
+
+        public int getCost() {
+            return cost;
+        }
+
+        public String getNumber() {
+            return number;
+        }
+
+        public void setDuration(int duration) {
+            this.duration = duration<0? 0:duration;
+        }
+
+        public void setCost(int cost) {
+            this.cost = cost<0? 0:cost;
+        }
+
+        public void setNumber(String number) {
+
+            if(number==null||number.isEmpty()||number.isBlank()){
+                this.number ="default";
+            }
+            else if(number.length()!=9){
+                System.out.println("Номер страховки некорректный!");
+                this.number ="default";
+            }
+            else {
+                this.number = number;
+            }
+        }
+
+        public Insurance(int duration, int cost, String number) {
+            setNumber(number);
+            setCost(cost);
+            setDuration(duration);
+        }
+
+        @Override
+        public String toString() {
+            return "insurance{" +
+                    "duration=" + duration +
+                    ", cost=" + cost +
+                    ", number=" + number +
+                    '}';
+        }
+
+        public static boolean DurationIsOverdue(int duration) {
+            if (duration < LocalDate.now().getYear()) {
+                return true;
+            }
+            return false;
+        }
+    }
 
     public String getBrand() {
         return brand;

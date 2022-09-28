@@ -3,9 +3,9 @@ import transport.Car;
 public class Main {
     public static void main(String[] args) {
 
-    task1();
+   // task1();
     task2();
-     task3();
+    // task3();
     }
 
     public static void task1() {
@@ -37,6 +37,22 @@ public class Main {
         System.out.println(audi);
         System.out.println(bmw);
         System.out.println(hyundai);
+
+         Car.Insurance insurance1 = new Car.Insurance(2021, 2000, "25vvhhhh0");
+         Car.Insurance insurance2 = new Car.Insurance(2022, 2500, "05vvhhhh0");
+         Car.Insurance insurance3 = new Car.Insurance(2025, 3000, "25vv89hh0");
+         Car.Insurance insurance4 = new Car.Insurance(2030, 3500, "72vvhhhh0");
+
+        if (Car.Insurance.DurationIsOverdue(insurance1.getDuration())) {
+            System.out.println("нужно срочно ехать оформлять новую страховку.");
+        }
+        ladaGrande.insurance = insurance1;
+        audi.insurance = insurance2;
+        bmw.insurance = insurance3;
+        hyundai.insurance = insurance4;
+
+
+
     }
 
     public static void task3() {
