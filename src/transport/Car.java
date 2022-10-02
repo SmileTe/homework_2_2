@@ -3,20 +3,13 @@ package transport;
 import java.time.LocalDate;
 import java.util.regex.Pattern;
 
-public class Car {
+public class Car extends Transport{
     public Car.Insurance insurance;
-    private String brand;
-   private String model;
     double engineVolume;
-    String color;
-    private Integer productionYear;
-    private String productionCountry;
     private String bodyType;
     String registrationNumber;
     private int seatingCapacity;
     String summerOrWinterRubber;
-
-
 
     public static class Key{
         private boolean remoteEngineStart;
@@ -102,11 +95,12 @@ public class Car {
     }
 
     public Integer getProductionYear() {
-        return productionYear;
+        return super.getProductionYear();
     }
 
     public String getProductionCountry() {
-        return productionCountry;
+
+        return super.getProductionCountry();
     }
 
     public String getBodyType() {
@@ -117,23 +111,18 @@ public class Car {
         return seatingCapacity;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand ==null? "default":brand;
-    }
-
-    public void setModel(String model) {
-        this.model = model ==null? "default":model;
-    }
 
     public void setProductionYear(Integer productionYear) {
-        this.productionYear = productionYear ==0? 2000:productionYear;
+
+       super.setProductionYear(productionYear);
     }
 
     public void setProductionCountry(String productionCountry) {
-        this.productionCountry = productionCountry ==null? "default":productionCountry;
+        super.setProductionCountry(productionCountry);
     }
 
     public void setBodyType(String bodyType) {
+        String productionCountry = super.getProductionCountry();
         if(productionCountry==null||productionCountry.isBlank()||productionCountry.isEmpty())
         {  this.bodyType = "Информация не задана";}
         else {  this.bodyType = bodyType;}
@@ -163,10 +152,11 @@ public class Car {
 
     public Car(String brand, String model, double engineVolume, String color, Integer productionYear,
                String productionCountry, String bodyType, int seatingCapacity) {
-       setBrand(brand);
-        setModel(model);
+        super(brand, model,productionYear,productionCountry,color);
+       super.setBrand(brand);
+        super.setModel(model);
         this.engineVolume = engineVolume ==0.0? 1.5:engineVolume;
-        this.color = color ==null? "белый":color;
+       super.setColor(color);
        setProductionYear(productionYear);
        setProductionCountry(productionCountry);
        setBodyType(bodyType);
@@ -188,9 +178,11 @@ public class Car {
                 ", registrationNumber='" + registrationNumber + '\'' +
                 ", seatingCapacity='" + getSeatingCapacity() + '\'' +
                 ", summerOrWinterRubber='" + summerOrWinterRubber + '\'' +
-
-
                 '}';
+    }
+
+    public void refill(){
+        System.out.println("можно заправлять бензином, дизелем на заправке или заряжать на специальных электро-парковках, если это электрокар.");
     }
 
 
