@@ -3,7 +3,7 @@ package transport;
 import java.time.LocalDate;
 import java.util.regex.Pattern;
 
-public class Car extends Transport{
+public class Car extends Transport implements Competing{
     public Car.Insurance insurance;
     double engineVolume;
     private String bodyType;
@@ -135,7 +135,6 @@ public class Car extends Transport{
 
     }
 
-
     public void setRegistrationNumber(String registrationNumber) {
         String regex = "х+\\d\\d\\d+хх+\\d\\d\\d";
         boolean matches = Pattern.matches(regex, registrationNumber);
@@ -153,16 +152,26 @@ public class Car extends Transport{
     public Car(String brand, String model, double engineVolume, String color, Integer productionYear,
                String productionCountry, String bodyType, int seatingCapacity) {
         super(brand, model,productionYear,productionCountry,color);
-       super.setBrand(brand);
-        super.setModel(model);
-        this.engineVolume = engineVolume ==0.0? 1.5:engineVolume;
-       super.setColor(color);
-       setProductionYear(productionYear);
-       setProductionCountry(productionCountry);
+        setEngineVolume(engineVolume);
+       //setProductionYear(productionYear);
+     //  setProductionCountry(productionCountry);
        setBodyType(bodyType);
        setSeatingCapacity(seatingCapacity);
 
+    }
 
+    public Car(String brand, String model, double engineVolume) {
+        super(brand, model);
+        setEngineVolume(engineVolume);
+       // setProductionYear(0);
+       // setProductionCountry("default");
+        setBodyType("default");
+        setSeatingCapacity(0);
+
+    }
+
+    public void setEngineVolume(double engineVolume) {
+        this.engineVolume = engineVolume ==0.0? 1.5:engineVolume;
     }
 
     @Override
@@ -184,7 +193,27 @@ public class Car extends Transport{
     public void refill(){
         System.out.println("можно заправлять бензином, дизелем на заправке или заряжать на специальных электро-парковках, если это электрокар.");
     }
+    public void startMoving(){
+        System.out.println("начало движения");
+    }
+    public void finishMoving(){
+        System.out.println("конец движения");
+    }
 
+    @Override
+    public void pitStop() {
+        System.out.println("пит-стоп - 5 сек");
+    }
+
+    @Override
+    public void bestLapTime() {
+        System.out.println("лучшее время круга - 1 час");
+    }
+
+    @Override
+    public void maxSpeed() {
+        System.out.println("максимальная скорость - 150 км/с");
+    }
 
 }
 

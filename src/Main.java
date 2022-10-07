@@ -2,9 +2,9 @@ import animals.Flightless;
 import animals.Flyng;
 import animals.Herbivory;
 import animals.Predator;
-import transport.Car;
-import transport.Train;
-import transport.Bus;
+import transport.*;
+
+import javax.sound.midi.Track;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,7 +14,9 @@ public class Main {
         // task3();
         //task4();
         //task5();
-        task6();
+      //  task6();
+        task7();
+
     }
 
     public static void task1() {
@@ -59,8 +61,6 @@ public class Main {
         audi.insurance = insurance2;
         bmw.insurance = insurance3;
         hyundai.insurance = insurance4;
-
-
     }
 
     public static void task3() {
@@ -117,7 +117,6 @@ public class Main {
         System.out.println("bus3 = " + bus3);
         bus1.refill();
     }
-
     public static void task6() {
 
         //травоядные
@@ -162,6 +161,58 @@ public class Main {
         System.out.println("albatross = " + albatross);
         System.out.println("falcon = " + falcon);
 
+    }
+
+    public static void task7() {
+
+        //легковые
+        Car car1 = new Car("Лада", "Гранта", 1500);
+        Car car2 = new Car("Ford", "Focus", 3000);
+        Car car3 = new Car("Toyota", "Camry", 3500);
+        Car car4 = new Car("Kia", "Rio", 2000);
+        printCompeting(car1);
+        printCompeting(car2);
+        printCompeting(car3);
+        printCompeting(car4);
+
+
+        //грузовые
+        Truck track1 = new Truck("ГАЗ", "Газель", 3000);
+        Truck track2 = new Truck("ЗИЛ", "Бычок", 3000);
+        Truck track3 = new Truck("КамАз", "5321", 3000);
+        Truck track4 = new Truck("DAF", "LF", 4000);
+        printCompeting(track1);
+        printCompeting(track2);
+        printCompeting(track3);
+        printCompeting(track4);
+
+        //автобусы
+        Bus bus1 = new Bus("ГАЗ", "4555", 2000);
+        Bus bus2 = new Bus("МАЗ", "232", 2500);
+        Bus bus3 = new Bus("Лиаз", "4292", 2100);
+        Bus bus4 = new Bus("УАЗ", "Родник", 4500);
+        printCompeting(bus1);
+        printCompeting(bus2);
+        printCompeting(bus3);
+        printCompeting(bus4);
+
+        Driver<Car> driverCar = new Driver<>("водитель легкового авто", "A", 5, car1);
+        Driver<Truck> driverTruck = new Driver<>("водитель грузового авто", "C", 15, track1);
+        Driver<Bus> driverBus = new Driver<>("водитель лавтобуса", "D", 25, bus3);
+
+        driverCar.printInformation(driverCar.getTransport());
+        driverTruck.printInformation(driverTruck.getTransport());
+        driverBus.printInformation(driverBus.getTransport());
+
+    }
+
+
+
+    public static void printCompeting(Competing transport) {
+        System.out.println(transport);
+        transport.pitStop();
+        transport.bestLapTime();
+        transport.maxSpeed();
     }
 
 }

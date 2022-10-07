@@ -1,14 +1,6 @@
 package transport;
 
 public abstract class Transport {
-    /*
-    Марка
-Модель
-Год выпуска
-Страна производства
-Цвет кузова
-Максимальная скорость передвижения
-     */
 
      String brand;
      String model;
@@ -18,22 +10,34 @@ public abstract class Transport {
      int maximumMovementSpeed;
 
     public abstract void refill();
+    public abstract void startMoving();
+    public abstract void finishMoving();
 
     public Transport(String brand, String model, Integer productionYear, String productionCountry, String color, int maximumMovementSpeed) {
         setBrand(brand);
         setModel(model);
         setProductionYear(productionYear);
         setProductionCountry(productionCountry);
-        this.color = color;
+        setColor(color);
         this.maximumMovementSpeed = maximumMovementSpeed;
     }
+
+    public Transport(String brand, String model) {
+        setBrand(brand);
+        setModel(model);
+        setProductionYear(0);
+        setProductionCountry("");
+        setColor(color);
+        this.maximumMovementSpeed = 0;
+    }
+
     public Transport(String brand, String model, Integer productionYear, String productionCountry, String color) {
         setBrand(brand);
         setModel(model);
         setProductionYear(productionYear);
         setProductionCountry(productionCountry);
-        this.color = color;
-        //this.maximumMovementSpeed = 0;
+        setColor(color);
+        this.maximumMovementSpeed = 0;
     }
 
     public void setProductionYear(Integer productionYear) {

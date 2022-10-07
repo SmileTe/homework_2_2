@@ -1,13 +1,7 @@
 package transport;
 
-public class Train extends Transport{
-    /*
-    Цена поездки
-Время поездки
-Название станции отбытия
-Конечная остановка
-Количество вагонов
-     */
+public class Train extends Transport {
+
     int travelPrice;
     int travelTime;
     String departureStationName;
@@ -81,5 +75,12 @@ public class Train extends Transport{
 
     public int getNumberOfCars() {
         return numberOfCars;
+    }
+
+    public void startMoving(){
+        System.out.println("начало движения");
+    }
+    public void finishMoving(){
+        System.out.println("конец движения");
     }
 }

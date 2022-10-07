@@ -1,28 +1,22 @@
 package transport;
 
-public class Bus extends Transport implements Competing{
+public class Truck extends Transport implements Competing{
 
     double engineVolume;
 
-    public Bus(String brand, String model, Integer productionYear, String productionCountry, String color) {
-        super(brand, model, productionYear, productionCountry, color);
-    }
-
-    public Bus(String brand, String model, double engineVolume) {
+    public Truck(String brand, String model, double engineVolume) {
         super(brand, model);
         setEngineVolume(engineVolume);
     }
     public void setEngineVolume(double engineVolume) {
         this.engineVolume = engineVolume ==0.0? 1.5:engineVolume;
     }
-
     @Override
     public String toString() {
         return "Bus{" +
                 "brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
-                ", color='" + color + '\'' +
-                ", maximumMovementSpeed=" + maximumMovementSpeed +
+                ", engineVolume='" + engineVolume + '\'' +
                 '}';
     }
     public void refill(){
@@ -42,12 +36,11 @@ public class Bus extends Transport implements Competing{
 
     @Override
     public void bestLapTime() {
-        System.out.println("лучшее время круга - 2 часа");
+        System.out.println("лучшее время круга - 1,5 часа");
     }
 
     @Override
     public void maxSpeed() {
-        System.out.println("максимальная скорость - 250 км/ч");
+        System.out.println("максимальная скорость - 200 км/ч");
     }
 }
-
