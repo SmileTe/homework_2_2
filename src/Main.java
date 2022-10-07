@@ -196,13 +196,13 @@ public class Main {
         printCompeting(bus3);
         printCompeting(bus4);
 
-        Driver<Car> driverCar = new Driver<>("водитель легкового авто", "A", 5, car1);
-        Driver<Truck> driverTruck = new Driver<>("водитель грузового авто", "C", 15, track1);
-        Driver<Bus> driverBus = new Driver<>("водитель лавтобуса", "D", 25, bus3);
+        Driver<Car> driverCar = new DriverA("водитель легкового авто", "A", 5, car1);
+        Driver<Truck> driverTruck = new DriverC("водитель грузового авто", "C", 15, track1);
+        Driver<Bus> driverBus = new DriverD("водитель лавтобуса", "D", 25, bus3);
 
-        driverCar.printInformation(driverCar.getTransport());
-        driverTruck.printInformation(driverTruck.getTransport());
-        driverBus.printInformation(driverBus.getTransport());
+        printInformation(driverCar.getTransport(), driverCar);
+        printInformation(driverTruck.getTransport(), driverBus);
+        printInformation(driverBus.getTransport(), driverTruck);
 
     }
 
@@ -213,6 +213,12 @@ public class Main {
         transport.pitStop();
         transport.bestLapTime();
         transport.maxSpeed();
+    }
+
+    public static void printInformation(Transport  t, Driver driver) {
+        System.out.println("Водитель " + driver.getName() +
+                " управляет автомобилем " + t.getBrand() +
+                " и будет участвовать в заезде");
     }
 
 }

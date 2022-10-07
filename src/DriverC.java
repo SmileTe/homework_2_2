@@ -1,0 +1,21 @@
+import transport.Car;
+import transport.Competing;
+import transport.Transport;
+import transport.Truck;
+
+
+public class DriverC extends Driver<Truck>{
+
+
+    public DriverC(String name, String typeDriverLicense, int experience, Truck truck) {
+        this.name = name;
+        this.typeDriverLicense = typeDriverLicense;
+        this.Experience = experience;
+        this.transport = truck;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+}
