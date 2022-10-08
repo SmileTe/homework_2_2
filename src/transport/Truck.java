@@ -3,11 +3,44 @@ package transport;
 public class Truck extends Transport implements Competing{
 
     double engineVolume;
+    private LoadType loadType;
+
+    public enum LoadType {
+
+        N1("N1  (с полной массой до 3,5 тонн) "),
+        N2("N2  (с полной массой свыше 3,5 до 12 тонн)"),
+        N3("N3  (с полной массой свыше 12 тонн)");
+
+        private String title;
+
+        LoadType(String title) {
+            this.title = title;
+        }
+
+        public String getTitle() {
+            return title;
+
+        }
+    }
 
     public Truck(String brand, String model, double engineVolume) {
         super(brand, model);
         setEngineVolume(engineVolume);
     }
+    public Truck(String brand, String model, double engineVolume, LoadType loadType) {
+        super(brand, model);
+        setEngineVolume(engineVolume);
+        this.loadType = loadType;
+    }
+
+    public LoadType getLoadType() {
+        return loadType;
+    }
+
+    public void setLoadType(LoadType loadType) {
+        this.loadType = loadType;
+    }
+
     public void setEngineVolume(double engineVolume) {
         this.engineVolume = engineVolume ==0.0? 1.5:engineVolume;
     }
@@ -42,5 +75,15 @@ public class Truck extends Transport implements Competing{
     @Override
     public void maxSpeed() {
         System.out.println("максимальная скорость - 200 км/ч");
+    }
+
+    @Override
+    public void printType() {
+        if(loadType ==null){
+            System.out.println("Данных недостаточно");
+        }
+        else {
+            System.out.println(getLoadType());
+        }
     }
 }

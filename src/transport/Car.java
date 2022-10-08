@@ -11,6 +11,32 @@ public class Car extends Transport implements Competing{
     private int seatingCapacity;
     String summerOrWinterRubber;
 
+    private TypeBody typeBody;
+
+    public enum TypeBody {
+
+        SEDAN("Седан"),
+        Hatchback("Хетчбек"),
+        Coupe("Купе"),
+        Universal("Универсал"),
+        SUV("Внедорожник"),
+        crossover("Кроссовер"),
+        pickup("Пикап"),
+        Van("Фургон"),
+        Minivan("Минивэн");
+
+        private String title;
+
+        TypeBody(String title) {
+            this.title = title;
+        }
+
+        public String getTitle() {
+            return title;
+
+        }
+    }
+
     public static class Key{
         private boolean remoteEngineStart;
         private boolean keylessAccess;
@@ -153,21 +179,31 @@ public class Car extends Transport implements Competing{
                String productionCountry, String bodyType, int seatingCapacity) {
         super(brand, model,productionYear,productionCountry,color);
         setEngineVolume(engineVolume);
-       //setProductionYear(productionYear);
-     //  setProductionCountry(productionCountry);
        setBodyType(bodyType);
        setSeatingCapacity(seatingCapacity);
 
     }
-
     public Car(String brand, String model, double engineVolume) {
         super(brand, model);
         setEngineVolume(engineVolume);
-       // setProductionYear(0);
-       // setProductionCountry("default");
         setBodyType("default");
         setSeatingCapacity(0);
+    }
 
+    public Car(String brand, String model, double engineVolume, TypeBody typeBody) {
+        super(brand, model);
+        setEngineVolume(engineVolume);
+        setBodyType("default");
+        setSeatingCapacity(0);
+        this.typeBody = typeBody;
+    }
+
+    public TypeBody getTypeBody() {
+        return typeBody;
+    }
+
+    public void setTypeBody(TypeBody typeBody) {
+        this.typeBody = typeBody;
     }
 
     public void setEngineVolume(double engineVolume) {
@@ -215,6 +251,15 @@ public class Car extends Transport implements Competing{
         System.out.println("максимальная скорость - 150 км/с");
     }
 
+    @Override
+    public void printType() {
+        if(typeBody ==null){
+            System.out.println("Данных недостаточно");
+        }
+        else {
+            System.out.println(getTypeBody());
+        }
+    }
 }
 
 

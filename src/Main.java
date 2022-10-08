@@ -166,10 +166,11 @@ public class Main {
     public static void task7() {
 
         //легковые
-        Car car1 = new Car("Лада", "Гранта", 1500);
-        Car car2 = new Car("Ford", "Focus", 3000);
-        Car car3 = new Car("Toyota", "Camry", 3500);
-        Car car4 = new Car("Kia", "Rio", 2000);
+        Car car1 = new Car("Лада", "Гранта", 1500, Car.TypeBody.SEDAN);
+        Car car2 = new Car("Ford", "Focus", 3000, Car.TypeBody.SEDAN);
+        Car car3 = new Car("Toyota", "Camry", 3500, Car.TypeBody.SEDAN);
+        Car car4 = new Car("Kia", "Rio", 2000, Car.TypeBody.SEDAN);
+
         printCompeting(car1);
         printCompeting(car2);
         printCompeting(car3);
@@ -177,20 +178,22 @@ public class Main {
 
 
         //грузовые
-        Truck track1 = new Truck("ГАЗ", "Газель", 3000);
-        Truck track2 = new Truck("ЗИЛ", "Бычок", 3000);
-        Truck track3 = new Truck("КамАз", "5321", 3000);
-        Truck track4 = new Truck("DAF", "LF", 4000);
+        Truck track1 = new Truck("ГАЗ", "Газель", 3000, Truck.LoadType.N1);
+        Truck track2 = new Truck("ЗИЛ", "Бычок", 3000, Truck.LoadType.N1);
+        Truck track3 = new Truck("КамАз", "5321", 3000, Truck.LoadType.N1);
+        Truck track4 = new Truck("DAF", "LF", 4000, Truck.LoadType.N1);
+
         printCompeting(track1);
         printCompeting(track2);
         printCompeting(track3);
         printCompeting(track4);
 
         //автобусы
-        Bus bus1 = new Bus("ГАЗ", "4555", 2000);
-        Bus bus2 = new Bus("МАЗ", "232", 2500);
-        Bus bus3 = new Bus("Лиаз", "4292", 2100);
-        Bus bus4 = new Bus("УАЗ", "Родник", 4500);
+        Bus bus1 = new Bus("ГАЗ", "4555", 2000, Bus.TypeCapacity.Medium);
+        Bus bus2 = new Bus("МАЗ", "232", 2500, Bus.TypeCapacity.Medium);
+        Bus bus3 = new Bus("Лиаз", "4292", 2100, Bus.TypeCapacity.Medium);
+        Bus bus4 = new Bus("УАЗ", "Родник", 4500, Bus.TypeCapacity.Medium);
+
         printCompeting(bus1);
         printCompeting(bus2);
         printCompeting(bus3);
@@ -219,6 +222,8 @@ public class Main {
         System.out.println("Водитель " + driver.getName() +
                 " управляет автомобилем " + t.getBrand() +
                 " и будет участвовать в заезде");
+        t.printType();
     }
+
 
 }

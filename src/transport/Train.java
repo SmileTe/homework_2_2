@@ -12,6 +12,11 @@ public class Train extends Transport {
         System.out.println("нужно заправлять дизелем");
     }
 
+    @Override
+    public void printType() {
+
+    }
+
     public Train(String brand, String model, Integer productionYear, String productionCountry, String color, int travelPrice, int travelTime, String departureStationName, String endStation, int numberOfCars, int maximumMovementSpeed) {
         super(brand, model, productionYear, productionCountry, color,maximumMovementSpeed);
         setTravelPrice(travelPrice);
