@@ -9,14 +9,15 @@ import javax.sound.midi.Track;
 public class Main {
     public static void main(String[] args) {
 
-        // task1();
+        //task1();
         //task2();
-        // task3();
+        //task3();
         //task4();
         //task5();
-      //  task6();
-        task7();
-
+        //task6();
+        //task7();
+        //task8();
+        task9();
     }
 
     public static void task1() {
@@ -209,8 +210,6 @@ public class Main {
 
     }
 
-
-
     public static void printCompeting(Competing transport) {
         System.out.println(transport);
         transport.pitStop();
@@ -224,6 +223,48 @@ public class Main {
                 " и будет участвовать в заезде");
         t.printType();
     }
+    public static void task8() {
+        try {
+            Login.check("we", "we***", "fdf");
+        } catch (WrongPasswordException e) {
+            System.out.println("Проверьте введенный пароль");
+        } catch (WrongLoginException e) {
+            System.out.println("Проверьте введенный логин");
+        } finally {
+            System.out.println("Проверка завершена");
+        }
+
+    }
+
+    public static void task9() {
+        Car car1 = new Car("Лада", "Гранта", 1500, Car.TypeBody.SEDAN);
+        Truck track1 = new Truck("ГАЗ", "Газель", 3000, Truck.LoadType.N1);
+        Bus bus3 = new Bus("Лиаз", "4292", 2100, Bus.TypeCapacity.Medium);
+
+        Driver<Car> driverCar = new DriverA("водитель легкового авто", "A", 5, car1);
+        Driver<Truck> driverTruck = new DriverC("водитель грузового авто", "C", 15, track1);
+        Driver<Bus> driverBus = new DriverD("водитель лавтобуса", "D", 25, bus3);
+
+        checkDriver(driverCar, driverBus, driverTruck);
+    }
+
+
+    public static void checkDriver(Driver...p1) {
+        for (Driver driverCar : p1) {
+            if ( driverCar.getTransport().undergoDiagnostics()) {
+                try {
+                    Transport.checkDriverLicense(driverCar.getTypeDriverLicense());
+                }
+                catch (transport.WrongDriverLicense e){
+                    System.out.println("Проверьте тип прав");
+                }
+            }
+            else{
+                System.out.println(driverCar.getTransport() + " в диагностике не требуется");
+            }
+        }
+    }
+
 
 
 }

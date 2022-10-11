@@ -86,4 +86,9 @@ public class Truck extends Transport implements Competing{
             System.out.println(getLoadType());
         }
     }
+
+    @Override
+    public boolean undergoDiagnostics() {
+        return true;
+    }
 }

@@ -13,6 +13,7 @@ public abstract class Transport {
     public abstract void startMoving();
     public abstract void finishMoving();
     public abstract void printType();
+    public abstract boolean undergoDiagnostics();
 
     public Transport(String brand, String model, Integer productionYear, String productionCountry, String color, int maximumMovementSpeed) {
         setBrand(brand);
@@ -85,6 +86,11 @@ public abstract class Transport {
         return maximumMovementSpeed;
     }
 
+    public static void checkDriverLicense (String driverLicense) throws WrongDriverLicense {
 
+        if (driverLicense == null || driverLicense.isBlank() || driverLicense.isEmpty()) {
+            throw new WrongDriverLicense();
+        }
+    }
 
 }

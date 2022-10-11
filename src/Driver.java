@@ -15,4 +15,10 @@ public abstract class Driver <T extends Transport>{
     public T getTransport() {
         return transport;
     }
+
+    public String getTypeDriverLicense() {
+        return typeDriverLicense;
+    }
 }
+
+

@@ -88,4 +88,9 @@ public class Train extends Transport {
     public void finishMoving(){
         System.out.println("конец движения");
     }
+
+    @Override
+    public boolean undergoDiagnostics() {
+        return false;
+    }
 }

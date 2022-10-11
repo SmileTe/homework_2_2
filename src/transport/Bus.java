@@ -94,5 +94,10 @@ public class Bus extends Transport implements Competing{
         }
         else { System.out.println(getTypeCapacity());}
     }
+    @Override
+    public boolean undergoDiagnostics() {
+        return false;
+    }
+
 }
 
