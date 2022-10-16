@@ -1,8 +1,11 @@
+import Exceptions.WrongLoginException;
+import Exceptions.WrongPasswordException;
+
 public class Login {
 String login;
 String password;
 
-    public static void check(String login, String password, String confirmPassword) throws WrongLoginException,WrongPasswordException {
+    public static void check(String login, String password, String confirmPassword) throws WrongLoginException, WrongPasswordException {
 
         if (login == null || login.isBlank() || login.isEmpty()
                 ||login.length()<1 ||login.length()>20 ||!isAlphaNumericFast(login)) {

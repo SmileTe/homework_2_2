@@ -1,10 +1,10 @@
-import transport.Car;
-import transport.Competing;
-import transport.Transport;
+package Drivers;
+
+import Drivers.Driver;
 import transport.Truck;
 
 
-public class DriverC extends Driver<Truck>{
+public class DriverC extends Driver<Truck> {
 
 
     public DriverC(String name, String typeDriverLicense, int experience, Truck truck) {

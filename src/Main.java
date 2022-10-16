@@ -1,10 +1,17 @@
+import Drivers.Driver;
+import Drivers.DriverA;
+import Drivers.DriverC;
+import Drivers.DriverD;
+import Exceptions.WrongLoginException;
+import Exceptions.WrongPasswordException;
 import animals.Flightless;
 import animals.Flyng;
 import animals.Herbivory;
 import animals.Predator;
 import transport.*;
 
-import javax.sound.midi.Track;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,7 +24,8 @@ public class Main {
         //task6();
         //task7();
         //task8();
-        task9();
+        //task9();
+        task10();
     }
 
     public static void task1() {
@@ -202,7 +210,7 @@ public class Main {
 
         Driver<Car> driverCar = new DriverA("водитель легкового авто", "A", 5, car1);
         Driver<Truck> driverTruck = new DriverC("водитель грузового авто", "C", 15, track1);
-        Driver<Bus> driverBus = new DriverD("водитель лавтобуса", "D", 25, bus3);
+        Driver<Bus> driverBus = new DriverD("водитель автобуса", "D", 25, bus3);
 
         printInformation(driverCar.getTransport(), driverCar);
         printInformation(driverTruck.getTransport(), driverBus);
@@ -248,6 +256,72 @@ public class Main {
         checkDriver(driverCar, driverBus, driverTruck);
     }
 
+    public static void task10() {
+
+
+        //Задание 1
+        Car car1 = new Car("Лада", "Гранта", 1500, Car.TypeBody.SEDAN);
+        Truck track1 = new Truck("ГАЗ", "Газель", 3000, Truck.LoadType.N1);
+        Bus bus1 = new Bus("Лиаз", "4292", 2100, Bus.TypeCapacity.Medium);
+
+        //list cars
+        LinkedList<Transport> listCars = new LinkedList<>();
+        listCars.add(car1);
+        listCars.add(track1);
+        listCars.add(bus1);
+
+        //list sponsor
+        LinkedList<Sponsor> listSponsors1 = new LinkedList<>();
+        Sponsor oleg = new Sponsor("Oleg",50 );
+        Sponsor petr = new Sponsor("Petr",100 );
+        Sponsor semen = new Sponsor("Semen",150 );
+
+        listSponsors1.add(oleg);
+        listSponsors1.add(petr);
+        listSponsors1.add(semen);
+
+        //list drivers
+        Driver<Car> driverCar = new DriverA("водитель легкового авто", "A", 5, car1);
+        Driver<Truck> driverTruck = new DriverC("водитель грузового авто", "C", 15, track1);
+        Driver<Bus> driverBus = new DriverD("водитель лавтобуса", "D", 25, bus1);
+
+        LinkedList<Driver> listDrivers1 = new LinkedList<>();
+        listDrivers1.add(driverCar);
+        listDrivers1.add(driverTruck);
+        listDrivers1.add(driverBus);
+
+        //list mechanics
+        Mechanic mechanicCar1 = new Mechanic("Механик по автомобилям младший", "Danone", "A");
+        Mechanic mechanicBus1 = new Mechanic("Механик по автобусам младший", "Danone", "D");
+        Mechanic mechanicTruck1 = new Mechanic("Механик по грузовикам младший", "Danone", "C");
+
+        LinkedList<Mechanic> listMechanic1 = new LinkedList<>();
+        listMechanic1.add(mechanicCar1);
+        listMechanic1.add(mechanicBus1);
+        listMechanic1.add(mechanicTruck1);
+
+        //Задание 2
+        Queue<Transport> queue = new LinkedList<>();
+
+        ServiceStation serviceStation1 = new ServiceStation("1", queue);
+        serviceStation1.addInQueue(queue,car1);
+        serviceStation1.addInQueue(queue,track1);
+
+
+        Queue<String> queue1 = new LinkedList<>();
+        for (int i = 1; i <=5; i++) {
+            queue1.add("" +  i);
+         }
+        Queue<String> queue2 = new LinkedList<>();
+        for (int i = 5; i <=10; i++) {
+            queue2.add("" +  i);
+        }
+       addManInQueue(queue1,queue2, "5");
+
+
+    }
+
+
 
     public static void checkDriver(Driver...p1) {
         for (Driver driverCar : p1) {
@@ -266,5 +340,11 @@ public class Main {
     }
 
 
-
+        public static void addManInQueue(Queue<String> queue1, Queue<String> queue2, String newMan) {
+            if (queue1.size() > queue2.size()) {
+                queue1.add(newMan);
+            } else if (queue2.size() > queue1.size()) {
+                queue2.add(newMan);
+            }
+}
 }
