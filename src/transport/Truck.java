@@ -2,7 +2,7 @@ package transport;
 
 public class Truck extends Transport implements Competing{
 
-    double engineVolume;
+   //double engineVolume;
     private LoadType loadType;
 
     public enum LoadType {
@@ -24,13 +24,12 @@ public class Truck extends Transport implements Competing{
     }
 
     public Truck(String brand, String model, double engineVolume) {
-        super(brand, model);
+        super(brand, model, engineVolume);
         setEngineVolume(engineVolume);
     }
     public Truck(String brand, String model, double engineVolume, LoadType loadType) {
-        super(brand, model);
-        setEngineVolume(engineVolume);
-        this.loadType = loadType;
+        super(brand, model, engineVolume);
+          this.loadType = loadType;
     }
 
     public LoadType getLoadType() {
@@ -41,15 +40,15 @@ public class Truck extends Transport implements Competing{
         this.loadType = loadType;
     }
 
-    public void setEngineVolume(double engineVolume) {
-        this.engineVolume = engineVolume ==0.0? 1.5:engineVolume;
-    }
+    //public void setEngineVolume(double engineVolume) {
+//        this.engineVolume = engineVolume ==0.0? 1.5:engineVolume;
+//    }
     @Override
     public String toString() {
         return "Bus{" +
-                "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", engineVolume='" + engineVolume + '\'' +
+                "brand='" + getBrand() + '\'' +
+                ", model='" + getModel() + '\'' +
+                ", engineVolume='" + getEngineVolume() + '\'' +
                 '}';
     }
     public void refill(){
@@ -90,5 +89,10 @@ public class Truck extends Transport implements Competing{
     @Override
     public boolean undergoDiagnostics() {
         return true;
+    }
+
+    @Override
+    public void fixAuto() {
+        System.out.println("Грузовик " + getBrand() + " " + getModel() + " починен") ;
     }
 }

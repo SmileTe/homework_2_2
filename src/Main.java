@@ -1,7 +1,7 @@
-import Drivers.Driver;
-import Drivers.DriverA;
-import Drivers.DriverC;
-import Drivers.DriverD;
+import transport.Drivers.Driver;
+import transport.Drivers.DriverA;
+import transport.Drivers.DriverC;
+import transport.Drivers.DriverD;
 import Exceptions.WrongLoginException;
 import Exceptions.WrongPasswordException;
 import animals.Flightless;
@@ -9,6 +9,7 @@ import animals.Flyng;
 import animals.Herbivory;
 import animals.Predator;
 import transport.*;
+import transport.category.*;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -45,31 +46,31 @@ public class Main {
     }
 
     public static void task2() {
-
-        Car ladaGrande = new Car("Lada", "Grande", 1.7, "желтый", 2017, "Россия", "", 0);
-        ladaGrande.setRegistrationNumber("х091хх020");
-        Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0, "черный", 2020, "Германия", "", 0);
-        Car bmw = new Car("BMW", "Z8", 3.0, "черный", 2021, "Южная Корея", "", 0);
-        Car hyundai = new Car("Hyundai", "Avante", 1.6, "оранжевый", 2016, "Южная Корея", "", 0);
-
-        System.out.println(ladaGrande);
-        ladaGrande.refill();
-        System.out.println(audi);
-        System.out.println(bmw);
-        System.out.println(hyundai);
-
-        Car.Insurance insurance1 = new Car.Insurance(2021, 2000, "25vvhhhh0");
-        Car.Insurance insurance2 = new Car.Insurance(2022, 2500, "05vvhhhh0");
-        Car.Insurance insurance3 = new Car.Insurance(2025, 3000, "25vv89hh0");
-        Car.Insurance insurance4 = new Car.Insurance(2030, 3500, "72vvhhhh0");
-
-        if (Car.Insurance.DurationIsOverdue(insurance1.getDuration())) {
-            System.out.println("нужно срочно ехать оформлять новую страховку.");
-        }
-        ladaGrande.insurance = insurance1;
-        audi.insurance = insurance2;
-        bmw.insurance = insurance3;
-        hyundai.insurance = insurance4;
+//
+//        Car ladaGrande = new Car("Lada", "Grande", 1.7, "желтый", 2017, "Россия", "", 0);
+//        ladaGrande.setRegistrationNumber("х091хх020");
+//        Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0, "черный", 2020, "Германия", "", 0);
+//        Car bmw = new Car("BMW", "Z8", 3.0, "черный", 2021, "Южная Корея", "", 0);
+//        Car hyundai = new Car("Hyundai", "Avante", 1.6, "оранжевый", 2016, "Южная Корея", "", 0);
+//
+//        System.out.println(ladaGrande);
+//        ladaGrande.refill();
+//        System.out.println(audi);
+//        System.out.println(bmw);
+//        System.out.println(hyundai);
+//
+//        Car.Insurance insurance1 = new Car.Insurance(2021, 2000, "25vvhhhh0");
+//        Car.Insurance insurance2 = new Car.Insurance(2022, 2500, "05vvhhhh0");
+//        Car.Insurance insurance3 = new Car.Insurance(2025, 3000, "25vv89hh0");
+//        Car.Insurance insurance4 = new Car.Insurance(2030, 3500, "72vvhhhh0");
+//
+//        if (Car.Insurance.DurationIsOverdue(insurance1.getDuration())) {
+//            System.out.println("нужно срочно ехать оформлять новую страховку.");
+//        }
+//        ladaGrande.insurance = insurance1;
+//        audi.insurance = insurance2;
+//        bmw.insurance = insurance3;
+//        hyundai.insurance = insurance4;
     }
 
     public static void task3() {
@@ -105,26 +106,25 @@ public class Main {
         System.out.println("Sum = " + sum);
         System.out.println("lifeSpan = " + lifeSpan);
     }
-
     public static void task4() {
 
-        Train lastochka = new Train("Ласточка", "B-901", 2011, "Россия", "", 3500, 0, "Белорусский вокзал", "станция Минск-Пассажирская", 11, 301);
-        Train leningrad = new Train("Ленинград", "D-125", 2019, "Россия", "", 1700, 0, "Ленинградский вокзал", "станция Ленинград-Пассажирская", 8, 270);
-
-        System.out.println("lastochka = " + lastochka);
-        System.out.println("leningrad = " + leningrad);
-        lastochka.refill();
+//        Train lastochka = new Train("Ласточка", "B-901", 2011, "Россия", "", 3500, 0, "Белорусский вокзал", "станция Минск-Пассажирская", 11, 301);
+//        Train leningrad = new Train("Ленинград", "D-125", 2019, "Россия", "", 1700, 0, "Ленинградский вокзал", "станция Ленинград-Пассажирская", 8, 270);
+//
+//        System.out.println("lastochka = " + lastochka);
+//        System.out.println("leningrad = " + leningrad);
+//        lastochka.refill();
     }
     public static void task5() {
-
-        Bus bus1 = new Bus("ГАЗ", "Б-52", 2005, "Россия", "голубой");
-        Bus bus2 = new Bus("ВАЗ", "М-05", 2000, "Россия", "желтый");
-        Bus bus3 = new Bus("Буханка", "Т-04", 1960, "Россия", "серый");
-
-        System.out.println("bus1 = " + bus1);
-        System.out.println("bus2 = " + bus2);
-        System.out.println("bus3 = " + bus3);
-        bus1.refill();
+//
+//        Bus bus1 = new Bus("ГАЗ", "Б-52", 2005, "Россия", "голубой");
+//        Bus bus2 = new Bus("ВАЗ", "М-05", 2000, "Россия", "желтый");
+//        Bus bus3 = new Bus("Буханка", "Т-04", 1960, "Россия", "серый");
+//
+//        System.out.println("bus1 = " + bus1);
+//        System.out.println("bus2 = " + bus2);
+//        System.out.println("bus3 = " + bus3);
+//        bus1.refill();
     }
     public static void task6() {
 
@@ -171,7 +171,6 @@ public class Main {
         System.out.println("falcon = " + falcon);
 
     }
-
     public static void task7() {
 
         //легковые
@@ -184,7 +183,6 @@ public class Main {
         printCompeting(car2);
         printCompeting(car3);
         printCompeting(car4);
-
 
         //грузовые
         Truck track1 = new Truck("ГАЗ", "Газель", 3000, Truck.LoadType.N1);
@@ -208,13 +206,13 @@ public class Main {
         printCompeting(bus3);
         printCompeting(bus4);
 
-        Driver<Car> driverCar = new DriverA("водитель легкового авто", "A", 5, car1);
-        Driver<Truck> driverTruck = new DriverC("водитель грузового авто", "C", 15, track1);
-        Driver<Bus> driverBus = new DriverD("водитель автобуса", "D", 25, bus3);
-
-        printInformation(driverCar.getTransport(), driverCar);
-        printInformation(driverTruck.getTransport(), driverBus);
-        printInformation(driverBus.getTransport(), driverTruck);
+//        Driver<Car> driverCar = new DriverA("водитель легкового авто", "A", 5, car1);
+//        Driver<Truck> driverTruck = new DriverC("водитель грузового авто", "C", 15, track1);
+//        Driver<Bus> driverBus = new DriverD("водитель автобуса", "D", 25, bus3);
+//
+//        printInformation(driverCar.getTransport(), driverCar);
+//        printInformation(driverTruck.getTransport(), driverBus);
+//        printInformation(driverBus.getTransport(), driverTruck);
 
     }
 
@@ -245,67 +243,88 @@ public class Main {
     }
 
     public static void task9() {
-        Car car1 = new Car("Лада", "Гранта", 1500, Car.TypeBody.SEDAN);
-        Truck track1 = new Truck("ГАЗ", "Газель", 3000, Truck.LoadType.N1);
-        Bus bus3 = new Bus("Лиаз", "4292", 2100, Bus.TypeCapacity.Medium);
-
-        Driver<Car> driverCar = new DriverA("водитель легкового авто", "A", 5, car1);
-        Driver<Truck> driverTruck = new DriverC("водитель грузового авто", "C", 15, track1);
-        Driver<Bus> driverBus = new DriverD("водитель лавтобуса", "D", 25, bus3);
-
-        checkDriver(driverCar, driverBus, driverTruck);
+//        Car car1 = new Car("Лада", "Гранта", 1500, Car.TypeBody.SEDAN);
+//        Truck track1 = new Truck("ГАЗ", "Газель", 3000, Truck.LoadType.N1);
+//        Bus bus3 = new Bus("Лиаз", "4292", 2100, Bus.TypeCapacity.Medium);
+//
+//        Driver<Car> driverCar = new DriverA("водитель легкового авто", "A", 5, car1);
+//        Driver<Truck> driverTruck = new DriverC("водитель грузового авто", "C", 15, track1);
+//        Driver<Bus> driverBus = new DriverD("водитель лавтобуса", "D", 25, bus3);
+//
+//        checkDriver(driverCar, driverBus, driverTruck);
     }
 
     public static void task10() {
 
-
         //Задание 1
         Car car1 = new Car("Лада", "Гранта", 1500, Car.TypeBody.SEDAN);
-        Truck track1 = new Truck("ГАЗ", "Газель", 3000, Truck.LoadType.N1);
+        Truck truck1 = new Truck("ГАЗ", "Газель", 3000, Truck.LoadType.N1);
         Bus bus1 = new Bus("Лиаз", "4292", 2100, Bus.TypeCapacity.Medium);
 
-        //list cars
-        LinkedList<Transport> listCars = new LinkedList<>();
-        listCars.add(car1);
-        listCars.add(track1);
-        listCars.add(bus1);
+        Driver<Car> driverCar = new DriverA("водитель легкового авто", true, 5,  new CategoryA("A"));
+        Driver<Truck> driverTruck = new DriverC("водитель грузового авто", true, 15,  new CategoryC("C"));
+        Driver<Bus> driverBus = new DriverD("водитель лавтобуса", true, 25,  new CategoryD("D"));
 
-        //list sponsor
-        LinkedList<Sponsor> listSponsors1 = new LinkedList<>();
         Sponsor oleg = new Sponsor("Oleg",50 );
         Sponsor petr = new Sponsor("Petr",100 );
         Sponsor semen = new Sponsor("Semen",150 );
 
-        listSponsors1.add(oleg);
-        listSponsors1.add(petr);
-        listSponsors1.add(semen);
+        Mechanic mechanicCar1 = new Mechanic<Car>("Механик по автомобилям младший", "Danone");
+        Mechanic mechanicBus1 = new Mechanic("Механик по автобусам младший", "Danone");
+        Mechanic mechanicTruck1 = new Mechanic("Механик по грузовикам младший", "Danone");
+
+        car1.addDriver(driverCar);
+        car1.addMechanic(mechanicCar1);
+        car1.addSponsor(oleg, petr);
+
+        truck1.addDriver(driverTruck);
+        truck1.addMechanic(mechanicTruck1);
+        truck1.addSponsor(petr,semen);
+
+        bus1.addDriver(driverBus);
+        bus1.addMechanic(mechanicBus1);
+        bus1.addSponsor(oleg, petr,semen);
+
+        //list cars
+        LinkedList<Transport> listCars = new LinkedList<>();
+        listCars.add(car1);
+        listCars.add(truck1);
+        listCars.add(bus1);
 
         //list drivers
-        Driver<Car> driverCar = new DriverA("водитель легкового авто", "A", 5, car1);
-        Driver<Truck> driverTruck = new DriverC("водитель грузового авто", "C", 15, track1);
-        Driver<Bus> driverBus = new DriverD("водитель лавтобуса", "D", 25, bus1);
 
         LinkedList<Driver> listDrivers1 = new LinkedList<>();
         listDrivers1.add(driverCar);
         listDrivers1.add(driverTruck);
         listDrivers1.add(driverBus);
 
-        //list mechanics
-        Mechanic mechanicCar1 = new Mechanic("Механик по автомобилям младший", "Danone", "A");
-        Mechanic mechanicBus1 = new Mechanic("Механик по автобусам младший", "Danone", "D");
-        Mechanic mechanicTruck1 = new Mechanic("Механик по грузовикам младший", "Danone", "C");
 
+        //list sponsor
+        LinkedList<Sponsor> listSponsors1 = new LinkedList<>();
+        listSponsors1.add(oleg);
+        listSponsors1.add(petr);
+        listSponsors1.add(semen);
+
+        //list mechanics
         LinkedList<Mechanic> listMechanic1 = new LinkedList<>();
         listMechanic1.add(mechanicCar1);
         listMechanic1.add(mechanicBus1);
         listMechanic1.add(mechanicTruck1);
 
+        for (Transport transport:listCars) {
+            printInformationAboutTransport(transport);
+        }
+
+
         //Задание 2
         Queue<Transport> queue = new LinkedList<>();
 
-        ServiceStation serviceStation1 = new ServiceStation("1", queue);
-        serviceStation1.addInQueue(queue,car1);
-        serviceStation1.addInQueue(queue,track1);
+        ServiceStation serviceStation1 = new ServiceStation();
+
+        serviceStation1.addCariInQueue(car1);
+        serviceStation1.addTruckInQueue(truck1);
+        serviceStation1.service();
+        serviceStation1.service();
 
 
         Queue<String> queue1 = new LinkedList<>();
@@ -322,25 +341,28 @@ public class Main {
     }
 
 
-
-    public static void checkDriver(Driver...p1) {
-        for (Driver driverCar : p1) {
-            if ( driverCar.getTransport().undergoDiagnostics()) {
-                try {
-                    Transport.checkDriverLicense(driverCar.getTypeDriverLicense());
-                }
-                catch (transport.WrongDriverLicense e){
-                    System.out.println("Проверьте тип прав");
-                }
-            }
-            else{
-                System.out.println(driverCar.getTransport() + " в диагностике не требуется");
-            }
+    public static void printInformationAboutTransport(Transport transport){
+        System.out.printf("Информация  по ТС:%1s %2s " ,transport.getBrand(), transport.getModel());
+        System.out.println("");
+        System.out.println("Водители: " );
+        for  (Driver<?> driver:transport.getDrivers()){
+            System.out.println("driver = " + driver);
         }
+
+        System.out.println("Спонсоры: " );
+        for  (Sponsor sponsor:transport.getSponsors()){
+            System.out.println("sponsor = " + sponsor);
+        }
+
+        System.out.println("Механики : " );
+        for  (Mechanic<?> mechanic:transport.getMechanics()){
+            System.out.println("mechanic = " + mechanic) ;
+        }
+        System.out.println("");
     }
 
 
-        public static void addManInQueue(Queue<String> queue1, Queue<String> queue2, String newMan) {
+            public static void addManInQueue(Queue<String> queue1, Queue<String> queue2, String newMan) {
             if (queue1.size() > queue2.size()) {
                 queue1.add(newMan);
             } else if (queue2.size() > queue1.size()) {

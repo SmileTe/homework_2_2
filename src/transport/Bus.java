@@ -2,7 +2,7 @@ package transport;
 
 public class Bus extends Transport implements Competing{
 
-    double engineVolume;
+    //double engineVolume;
     private TypeCapacity typeCapacity;
 
 
@@ -26,19 +26,14 @@ public class Bus extends Transport implements Competing{
         }
     }
 
-    public Bus(String brand, String model, Integer productionYear, String productionCountry, String color) {
-        super(brand, model, productionYear, productionCountry, color);
-    }
-
     public Bus(String brand, String model, double engineVolume) {
-        super(brand, model);
-        setEngineVolume(engineVolume);
+        super(brand, model, engineVolume);
+
     }
 
     public Bus(String brand, String model, double engineVolume, TypeCapacity typeCapacity) {
-        super(brand, model);
-        setEngineVolume(engineVolume);
-        this.typeCapacity = typeCapacity;
+        super(brand, model,engineVolume);
+         this.typeCapacity = typeCapacity;
     }
 
     public TypeCapacity getTypeCapacity() {
@@ -49,17 +44,11 @@ public class Bus extends Transport implements Competing{
         this.typeCapacity = typeCapacity;
     }
 
-    public void setEngineVolume(double engineVolume) {
-        this.engineVolume = engineVolume ==0.0? 1.5:engineVolume;
-    }
-
-    @Override
+        @Override
     public String toString() {
         return "Bus{" +
-                "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", color='" + color + '\'' +
-                ", maximumMovementSpeed=" + maximumMovementSpeed +
+                "brand='" + getBrand() + '\'' +
+                ", model='" + getModel() + '\'' +
                 '}';
     }
     public void refill(){
@@ -99,5 +88,9 @@ public class Bus extends Transport implements Competing{
         return false;
     }
 
+    @Override
+    public void fixAuto() {
+        System.out.println("Автобус" + getBrand() + " " + getModel() + " починен") ;
+    }
 }
 

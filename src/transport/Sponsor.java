@@ -1,6 +1,8 @@
+package transport;
+
 public class Sponsor {
-    String name;
-    int sumSupport;
+    private String name;
+    private int sumSupport;
 
     public Sponsor(String name, int sumSupport) {
         this.name = name;
@@ -21,5 +23,17 @@ public class Sponsor {
 
     public void setSumSupport(int sumSupport) {
         this.sumSupport = sumSupport;
+    }
+
+    public void SponsorCheckIn(){
+        System.out.printf("Заезд проспонсирован %s на сумму %d !",name, sumSupport);
+    }
+
+    @Override
+    public String toString() {
+        return "Sponsor{" +
+                "name='" + name + '\'' +
+                ", sumSupport=" + sumSupport +
+                '}';
     }
 }

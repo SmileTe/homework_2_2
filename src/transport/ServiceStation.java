@@ -4,33 +4,44 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class ServiceStation {
-    String name;
-    Queue<Transport> QueueTransports = new LinkedList<>();
 
-    public ServiceStation(String name, Queue<Transport> queueTransports) {
-        this.name = name;
-        QueueTransports = queueTransports;
+    private final Queue<Transport> queueTransports = new LinkedList<>();
+
+    public ServiceStation( ) {
+
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Queue<Transport> getQueueTransports() {
-        return QueueTransports;
+        return queueTransports;
     }
 
     public void setQueueTransports(Queue<Transport> queueTransports) {
-        QueueTransports = queueTransports;
+        queueTransports = queueTransports;
     }
 
-    public  void addInQueue(Queue queueTransports, Transport newElement) {
-        queueTransports.add(newElement);
+    private  void addInQueue(Transport newElement) {
+        this.queueTransports.add(newElement);
     }
+
+    public  void addCariInQueue(Car car) {
+        addInQueue(car);
+    }
+
+    public  void addTruckInQueue(Truck truck) {
+        addInQueue(truck);
+    }
+
+    public void service() {
+        if (!queueTransports.isEmpty()) {
+            Transport transport = queueTransports.poll();
+            boolean result = transport.undergoDiagnostics();
+            if (result) {
+                transport.fixAuto();
+            }
+        }
+    }
+
     public static void deleteFromQueue(Queue queueTransports, Transport newElement) {
         queueTransports.remove(newElement);
     }

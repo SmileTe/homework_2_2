@@ -1,53 +1,39 @@
 package transport;
 
-public abstract class Transport {
+import transport.Drivers.Driver;
 
-     String brand;
-     String model;
-    private Integer productionYear;
-    private String productionCountry;
-     String color;
-     int maximumMovementSpeed;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+
+public abstract class Transport {
+    private String brand;
+    private String model;
+
+    private double engineVolume;
+    private final List<Driver<?>> drivers = new ArrayList<>();
+    private final List<Mechanic<?>> mechanics = new ArrayList<>();
+    private final List<Sponsor> sponsors = new ArrayList<>();
 
     public abstract void refill();
     public abstract void startMoving();
     public abstract void finishMoving();
     public abstract void printType();
     public abstract boolean undergoDiagnostics();
+    public abstract void fixAuto();
 
-    public Transport(String brand, String model, Integer productionYear, String productionCountry, String color, int maximumMovementSpeed) {
+
+    public Transport(String brand, String model, double engineVolume) {
         setBrand(brand);
         setModel(model);
-        setProductionYear(productionYear);
-        setProductionCountry(productionCountry);
-        setColor(color);
-        this.maximumMovementSpeed = maximumMovementSpeed;
-    }
+        setEngineVolume(engineVolume);
 
-    public Transport(String brand, String model) {
+    }
+    public Transport(String brand, String model, double engineVolume, List<Driver<?>> drivers) {
         setBrand(brand);
         setModel(model);
-        setProductionYear(0);
-        setProductionCountry("");
-        setColor(color);
-        this.maximumMovementSpeed = 0;
-    }
-
-    public Transport(String brand, String model, Integer productionYear, String productionCountry, String color) {
-        setBrand(brand);
-        setModel(model);
-        setProductionYear(productionYear);
-        setProductionCountry(productionCountry);
-        setColor(color);
-        this.maximumMovementSpeed = 0;
-    }
-
-    public void setProductionYear(Integer productionYear) {
-        this.productionYear = productionYear ==0? 2000:productionYear;
-    }
-
-    public void setProductionCountry(String productionCountry) {
-        this.productionCountry = productionCountry ==null? "default":productionCountry;
+        setEngineVolume(engineVolume);
     }
 
     public void setBrand(String brand) {
@@ -58,18 +44,6 @@ public abstract class Transport {
         this.model = model ==null? "default":model;
     }
 
-    public void setColor(String color) {
-        this.color = color ==null? "белый":color;
-    }
-
-    public Integer getProductionYear() {
-        return productionYear;
-    }
-
-    public String getProductionCountry() {
-        return productionCountry;
-    }
-
     public String getBrand() {
         return brand;
     }
@@ -78,12 +52,12 @@ public abstract class Transport {
         return model;
     }
 
-    public String getColor() {
-        return color;
+    public double getEngineVolume() {
+        return engineVolume;
     }
 
-    public int getMaximumMovementSpeed() {
-        return maximumMovementSpeed;
+    public void setEngineVolume(double engineVolume) {
+        engineVolume = engineVolume ==0.0? 1.5:engineVolume;
     }
 
     public static void checkDriverLicense (String driverLicense) throws WrongDriverLicense {
@@ -93,4 +67,26 @@ public abstract class Transport {
         }
     }
 
+    public void addDriver(Driver<?> ...newDrivers){
+        this.drivers.addAll(Arrays.asList(newDrivers));
+    }
+    public void addMechanic(Mechanic<?> ...newMechanics){
+
+        this.mechanics.addAll(Arrays.asList(newMechanics));
+    }
+    public void addSponsor(Sponsor... newSponsors){
+        this.sponsors.addAll(Arrays.asList(newSponsors));
+    }
+
+    public List<Driver<?>> getDrivers() {
+        return drivers;
+    }
+
+    public List<Mechanic<?>> getMechanics() {
+        return mechanics;
+    }
+
+    public List<Sponsor> getSponsors() {
+        return sponsors;
+    }
 }

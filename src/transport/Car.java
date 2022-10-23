@@ -5,11 +5,11 @@ import java.util.regex.Pattern;
 
 public class Car extends Transport implements Competing{
     public Car.Insurance insurance;
-    double engineVolume;
+    //private double engineVolume;
     private String bodyType;
-    String registrationNumber;
+    private  String registrationNumber;
     private int seatingCapacity;
-    String summerOrWinterRubber;
+    private String summerOrWinterRubber;
 
     private TypeBody typeBody;
 
@@ -113,21 +113,13 @@ public class Car extends Transport implements Competing{
     }
 
     public String getBrand() {
-        return brand;
+        return super.getBrand();
     }
 
     public String getModel() {
-        return model;
+        return super.getModel();
     }
 
-    public Integer getProductionYear() {
-        return super.getProductionYear();
-    }
-
-    public String getProductionCountry() {
-
-        return super.getProductionCountry();
-    }
 
     public String getBodyType() {
         return bodyType;
@@ -135,24 +127,6 @@ public class Car extends Transport implements Competing{
 
     public int getSeatingCapacity() {
         return seatingCapacity;
-    }
-
-
-    public void setProductionYear(Integer productionYear) {
-
-       super.setProductionYear(productionYear);
-    }
-
-    public void setProductionCountry(String productionCountry) {
-        super.setProductionCountry(productionCountry);
-    }
-
-    public void setBodyType(String bodyType) {
-        String productionCountry = super.getProductionCountry();
-        if(productionCountry==null||productionCountry.isBlank()||productionCountry.isEmpty())
-        {  this.bodyType = "Информация не задана";}
-        else {  this.bodyType = bodyType;}
-
     }
 
     public void setSeatingCapacity(int seatingCapacity) {
@@ -175,25 +149,15 @@ public class Car extends Transport implements Competing{
         this.summerOrWinterRubber = summerOrWinterRubber;
     }
 
-    public Car(String brand, String model, double engineVolume, String color, Integer productionYear,
-               String productionCountry, String bodyType, int seatingCapacity) {
-        super(brand, model,productionYear,productionCountry,color);
-        setEngineVolume(engineVolume);
-       setBodyType(bodyType);
-       setSeatingCapacity(seatingCapacity);
 
-    }
     public Car(String brand, String model, double engineVolume) {
-        super(brand, model);
+        super(brand, model,engineVolume);
         setEngineVolume(engineVolume);
-        setBodyType("default");
-        setSeatingCapacity(0);
-    }
+        }
 
     public Car(String brand, String model, double engineVolume, TypeBody typeBody) {
-        super(brand, model);
-        setEngineVolume(engineVolume);
-        setBodyType("default");
+        super(brand, model,engineVolume);
+
         setSeatingCapacity(0);
         this.typeBody = typeBody;
     }
@@ -206,19 +170,12 @@ public class Car extends Transport implements Competing{
         this.typeBody = typeBody;
     }
 
-    public void setEngineVolume(double engineVolume) {
-        this.engineVolume = engineVolume ==0.0? 1.5:engineVolume;
-    }
-
     @Override
     public String toString() {
         return "transport.Car{" +
                 "brand='" + getBrand() + '\'' +
                 ", model='" + getModel() + '\'' +
-                ", engineVolume=" + engineVolume +
-                ", color='" + color + '\'' +
-                ", productionYear=" + getProductionYear() +
-                ", productionCountry='" + getProductionCountry() + '\'' +
+                ", engineVolume=" + getEngineVolume() +
                 ", bodyType='" + getBodyType() + '\'' +
                 ", registrationNumber='" + registrationNumber + '\'' +
                 ", seatingCapacity='" + getSeatingCapacity() + '\'' +
@@ -261,10 +218,14 @@ public class Car extends Transport implements Competing{
         }
     }
 
-
     @Override
     public boolean undergoDiagnostics() {
-    return true;
+        return true;
+    }
+
+    @Override
+    public void fixAuto() {
+        System.out.println("Машина " + getBrand() + " " + getModel() + " починена") ;
     }
 }
 
