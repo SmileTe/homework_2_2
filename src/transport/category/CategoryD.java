@@ -4,14 +4,14 @@ public class CategoryD extends Category{
     //private String type;
 
     public CategoryD(String type) {
-        this.type = type;
+        setType(type);
     }
 
     public String getType() {
-        return super.type;
+        return super.getType();
     }
 
     public void setType(String type) {
-        this.type = type;
+        super.setType(type);
     }
 }

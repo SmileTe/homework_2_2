@@ -1,6 +1,5 @@
 package transport.Drivers;
 
-import transport.Categories;
 import transport.Truck;
 import transport.category.CategoryC;
 

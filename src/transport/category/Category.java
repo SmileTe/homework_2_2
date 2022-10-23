@@ -1,7 +1,7 @@
 package transport.category;
 
 public class Category {
-    public String type;
+    private String type;
 
        public String getType() {
         return type;

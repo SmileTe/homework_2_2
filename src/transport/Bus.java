@@ -5,7 +5,6 @@ public class Bus extends Transport implements Competing{
     //double engineVolume;
     private TypeCapacity typeCapacity;
 
-
     public enum TypeCapacity {
 
         ExtraSmall("особо малая (до 10 мест)"),
