@@ -16,7 +16,7 @@ public class ServiceStation {
     }
 
     private  void addInQueue(Transport newElement) {
-        this.queueTransports.add(newElement);
+        this.queueTransports.offer(newElement);
     }
 
     public  void addCariInQueue(Car car) {
@@ -37,8 +37,8 @@ public class ServiceStation {
         }
     }
 
-    public static void deleteFromQueue(Queue queueTransports, Transport newElement) {
-        queueTransports.remove(newElement);
+    public static void deleteFromQueue(Queue queueTransports) {
+        queueTransports.poll();
     }
 
 }

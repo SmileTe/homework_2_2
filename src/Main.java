@@ -11,6 +11,9 @@ import animals.Predator;
 import transport.*;
 import transport.category.*;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 import java.lang.reflect.Array;
 import java.util.*;
 
@@ -516,11 +519,12 @@ public class Main {
         System.out.println("");
     }
 
-    public static void addManInQueue(Queue<String> queue1, Queue<String> queue2, String newMan) {
+
+            public static void addManInQueue(Queue<String> queue1, Queue<String> queue2, String newMan) {
             if (queue1.size() > queue2.size()) {
-                queue1.add(newMan);
-            } else if (queue2.size() > queue1.size()) {
                 queue2.add(newMan);
+            } else if (queue2.size() > queue1.size()) {
+                queue1.add(newMan);
             }
 }
 }
