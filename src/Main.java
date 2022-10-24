@@ -11,7 +11,9 @@ import animals.Predator;
 import transport.*;
 import transport.category.*;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 import java.lang.reflect.Array;
@@ -341,6 +343,28 @@ public class Main {
         }
        addManInQueue(queue1,queue2, "5");
 
+
+        //задание 3
+        List<List<String>> biDemArrList = new ArrayList<>();
+        boolean r = true;
+        for (int i = 0; i < 8; i++) {
+            biDemArrList.add(i, new ArrayList<>());
+              for (int j = 0; j < 8; j++) {
+                  if(r){
+                biDemArrList.get(i).add(j, "◯");
+                      }
+                  else { biDemArrList.get(i).add(j, "●");
+                     }
+                  r = !r;
+              }
+            r = !r;
+        }
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                System.out.print(biDemArrList.get(i).get(j) + " ");
+            }
+            System.out.println();
+        }
 
     }
 
