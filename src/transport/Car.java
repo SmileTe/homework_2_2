@@ -120,7 +120,6 @@ public class Car extends Transport implements Competing{
         return super.getModel();
     }
 
-
     public String getBodyType() {
         return bodyType;
     }

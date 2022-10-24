@@ -7,8 +7,6 @@ public class ServiceStation {
 
     private final Queue<Transport> queueTransports = new LinkedList<>();
 
-
-
     public Queue<Transport> getQueueTransports() {
         return queueTransports;
     }

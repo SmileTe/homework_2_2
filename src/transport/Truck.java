@@ -2,7 +2,6 @@ package transport;
 
 public class Truck extends Transport implements Competing{
 
-   //double engineVolume;
     private LoadType loadType;
 
     public enum LoadType {

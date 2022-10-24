@@ -11,8 +11,8 @@ import animals.Predator;
 import transport.*;
 import transport.category.*;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,7 +26,8 @@ public class Main {
         //task7();
         //task8();
         //task9();
-        task10();
+       // task10();
+        task11();
     }
 
     public static void task1() {
@@ -340,6 +341,160 @@ public class Main {
 
     }
 
+    public static void task11(){
+
+        //task1
+        ArrayList<Product> products = new ArrayList<Product>();
+        Product banana = new Product("Бананы",  70, 1);
+        Product banana1 = new Product("Бананы",  70, 1);
+        Product cherry = new Product("Вишня", 100, 0.5);
+        Product potato = new Product("Картофель", 150, 10);
+        addInArrayList(products, banana);
+       // addInArrayList(products, banana1);
+        addInArrayList(products, cherry);
+        addInArrayList(products, potato);
+
+        int bananaIndex = products.indexOf(banana);
+        products.get(bananaIndex).setBought(true);
+
+        for (int i = 0; i < products.size(); i++) {
+         if(products.get(i).isBought()){
+             deleteFromArrayList(products, products.get(i));
+         }
+        }
+        //System.out.println(Arrays.toString(products.toArray()));
+
+        //задание 2
+
+        /// рецепт 1
+        Product cookie = new Product("Печенье", 150, 200);
+        Product condencedMilk = new Product("сгущенное молоко", 200, 200);
+        Product cocoa = new Product("Какао", 150, 200);
+        List<Product> arrayForPotato  = new ArrayList<>();
+        addInArrayList(arrayForPotato, cookie);
+        addInArrayList(arrayForPotato, condencedMilk);
+        addInArrayList(arrayForPotato, cocoa);
+
+
+        /// рецепт 2
+        Product sausage = new Product("Колбаса", 150, 200);
+        Product butter = new Product("масло", 200, 200);
+        Product bread = new Product("хлеб", 150, 200);
+        List<Product> arrayForSandwich  = new ArrayList<>();
+        addInArrayList(arrayForSandwich, sausage);
+        addInArrayList(arrayForSandwich, butter);
+        addInArrayList(arrayForSandwich,  bread);
+
+
+        ArrayList<Recipe> arrayRecipes= new ArrayList<>();
+        addInArrayListRecipe(arrayRecipes, new Recipe("Пирожное картошка",arrayForPotato,600));
+        addInArrayListRecipe(arrayRecipes, new Recipe("Бутерброд",arrayForSandwich,600));
+
+        //задание 3
+
+        Random rand = new Random();
+        ArrayList<Integer> array= new ArrayList<>();
+        //заполнение
+        for (int i = 0; i < 20; i++) {
+            array.add(rand.nextInt(1000));
+        }
+        //удаление
+        for (int i = array.size()-1; i >=0; i--) {
+            if(array.get(i)%2==1){
+                array.remove(i);
+            }
+        }
+        System.out.println(Arrays.toString(array.toArray()));
+
+        //задание 4
+        Car car1 = new Car("Лада", "Гранта", 1500, Car.TypeBody.SEDAN);
+        Truck truck1 = new Truck("ГАЗ", "Газель", 3000, Truck.LoadType.N1);
+        Bus bus1 = new Bus("Лиаз", "4292", 2100, Bus.TypeCapacity.Medium);
+
+        Driver<Car> driverCar = new DriverA("водитель легкового авто", true, 5,  new CategoryA("A"));
+        Driver<Truck> driverTruck = new DriverC("водитель грузового авто", true, 15,  new CategoryC("C"));
+        Driver<Bus> driverBus = new DriverD("водитель лавтобуса", true, 25,  new CategoryD("D"));
+
+        Sponsor oleg = new Sponsor("Oleg",50 );
+        Sponsor petr = new Sponsor("Petr",100 );
+        Sponsor semen = new Sponsor("Semen",150 );
+
+        Mechanic mechanicCar1 = new Mechanic<Car>("Механик по автомобилям младший", "Danone");
+        Mechanic mechanicBus1 = new Mechanic("Механик по автобусам младший", "Danone");
+        Mechanic mechanicTruck1 = new Mechanic("Механик по грузовикам младший", "Danone");
+
+        car1.addDriver(driverCar);
+        car1.addMechanic(mechanicCar1);
+        car1.addSponsor(oleg, petr);
+
+        truck1.addDriver(driverTruck);
+        truck1.addMechanic(mechanicTruck1);
+        truck1.addSponsor(petr,semen);
+
+        bus1.addDriver(driverBus);
+        bus1.addMechanic(mechanicBus1);
+        bus1.addSponsor(oleg, petr,semen);
+
+        //list cars
+        Set <Transport> listCars = new HashSet<>();
+        listCars.add(car1);
+        listCars.add(truck1);
+        listCars.add(bus1);
+
+        //list drivers
+
+        Set<Driver> listDrivers1 = new HashSet<>();
+        listDrivers1.add(driverCar);
+        listDrivers1.add(driverTruck);
+        listDrivers1.add(driverBus);
+
+
+        //list sponsor
+        Set<Sponsor> listSponsors1 = new HashSet<>();
+        listSponsors1.add(oleg);
+        listSponsors1.add(petr);
+        listSponsors1.add(semen);
+
+        //list mechanics
+        Set<Mechanic> listMechanic1 = new HashSet<>();
+        listMechanic1.add(mechanicCar1);
+        listMechanic1.add(mechanicBus1);
+        listMechanic1.add(mechanicTruck1);
+
+
+        for (Transport transport:listCars) {
+            System.out.println(transport);
+
+        }
+
+
+
+    }
+    public static  void addInArrayList(List array, Product newProduct) {
+          if(array.contains(newProduct)){
+            throw new ArrayStoreException();
+          }
+          else {
+              array.add(newProduct);
+          }
+
+
+    }
+
+    public static  void addInArrayListRecipe(ArrayList array, Recipe newRecipe) {
+        if(array.contains(newRecipe)){
+            throw new ArrayStoreException();
+        }
+        else {
+            array.add(newRecipe);
+        }
+
+
+    }
+
+    public static  void deleteFromArrayList(ArrayList array, Product product) {
+        array.remove(product);
+    }
 
     public static void printInformationAboutTransport(Transport transport){
         System.out.printf("Информация  по ТС:%1s %2s " ,transport.getBrand(), transport.getModel());
@@ -361,8 +516,7 @@ public class Main {
         System.out.println("");
     }
 
-
-            public static void addManInQueue(Queue<String> queue1, Queue<String> queue2, String newMan) {
+    public static void addManInQueue(Queue<String> queue1, Queue<String> queue2, String newMan) {
             if (queue1.size() > queue2.size()) {
                 queue1.add(newMan);
             } else if (queue2.size() > queue1.size()) {

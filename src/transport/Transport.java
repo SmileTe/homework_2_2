@@ -10,7 +10,6 @@ import java.util.List;
 public abstract class Transport {
     private String brand;
     private String model;
-
     private double engineVolume;
     private final List<Driver<?>> drivers = new ArrayList<>();
     private final List<Mechanic<?>> mechanics = new ArrayList<>();

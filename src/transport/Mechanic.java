@@ -6,7 +6,7 @@ import transport.Transport;
 public class Mechanic<T extends Transport> {
     private String name;
     private String company;
-    //private String typeAuto;
+
 
     public Mechanic(String name, String company) {
         this.name = name;
