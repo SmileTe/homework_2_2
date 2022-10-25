@@ -494,9 +494,53 @@ public class Main {
 
         }
 
+        //задание 5
+        Set<String> listTasks = new HashSet<>();
+        for (int i = 2; i < 10; i++) {
+            for (int j = 2; j < 10; j++) {
+                String a = ""+ i + "*" + j;
+                String b = ""+ j + "*" + i;
+                if(!listTasks.contains(b)){
+                    listTasks.add(a);
+                }
+            }
+        }
 
+        int i = 1;
+        for (String task: listTasks) {
+            System.out.println(task);
+            i++;
+            if(i==16){break;}
+        }
+
+        //задание 6
+        HashMap<Integer, Passport> passportsAndNames = new HashMap<>();
+        passportsAndNames.put(212133, new Passport(212133,"Лидия Аркадьевна Бубликова","01.01.2000"));
+        passportsAndNames.put(162348, new Passport(162348, "Иван Михайлович Серебряков","01.01.2000"));
+        passportsAndNames.put(8082771, new Passport(8082771, "Дональд Джон Трамп","01.01.2000"));
+        passportsAndNames.put(162348, new Passport(162348, "Виктор Михайлович Стычкин","01.01.2000"));//повторный ключ
+
+        System.out.println(passportsAndNames);
+
+        Passport lidiaName = passportsAndNames.get(212133);
+        System.out.println(lidiaName);
+
+        passportsAndNames.remove(162348);
+        System.out.println(passportsAndNames);
+
+        //задание 7
+        //HashSet, т.к. работает с хэш-данными, что ускоряет время для поиска
 
     }
+
+    private void process(Collection<Integer> firstCollection, List<Integer> list) {
+        if (firstCollection.containsAll(list)) {
+            System.out.println("Первая коллекция содержит все элементы списка");
+        } else {
+            System.out.println("Некоторые (или все) элементы из списка отсутствуют в первой коллекции");
+        }
+    }
+
     public static  void addInArrayList(List array, Product newProduct) {
           if(array.contains(newProduct)){
             throw new ArrayStoreException();
@@ -504,6 +548,7 @@ public class Main {
           else {
               array.add(newProduct);
           }
+
 
 
     }
