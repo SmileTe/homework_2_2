@@ -371,7 +371,7 @@ public class Main {
     public static void task11(){
 
         //task1
-        ArrayList<Product> products = new ArrayList<Product>();
+       List<Product> products = new ArrayList<Product>();
         Product banana = new Product("Бананы",  70, 1);
         Product banana1 = new Product("Бананы",  70, 1);
         Product cherry = new Product("Вишня", 100, 0.5);
@@ -413,22 +413,24 @@ public class Main {
         addInArrayList(arrayForSandwich,  bread);
 
 
-        ArrayList<Recipe> arrayRecipes= new ArrayList<>();
-        addInArrayListRecipe(arrayRecipes, new Recipe("Пирожное картошка",arrayForPotato,600));
-        addInArrayListRecipe(arrayRecipes, new Recipe("Бутерброд",arrayForSandwich,600));
+        List<Recipe> arrayRecipes= new ArrayList<>();
+        addInArrayListRecipe(arrayRecipes, new Recipe("Пирожное картошка",arrayForPotato));
+        addInArrayListRecipe(arrayRecipes, new Recipe("Бутерброд",arrayForSandwich));
 
         //задание 3
 
         Random rand = new Random();
-        ArrayList<Integer> array= new ArrayList<>();
+        Set<Integer> array= new HashSet<>();
         //заполнение
         for (int i = 0; i < 20; i++) {
             array.add(rand.nextInt(1000));
         }
         //удаление
-        for (int i = array.size()-1; i >=0; i--) {
-            if(array.get(i)%2==1){
-                array.remove(i);
+        Iterator<Integer> it = array.iterator();
+        while (it.hasNext()){
+            Integer a = it.next();
+            if(a%2==1){
+                it.remove();
             }
         }
         System.out.println(Arrays.toString(array.toArray()));
@@ -514,7 +516,7 @@ public class Main {
         }
 
         //задание 6
-        HashMap<Integer, Passport> passportsAndNames = new HashMap<>();
+        Map<Integer, Passport> passportsAndNames = new HashMap<>();
         passportsAndNames.put(212133, new Passport(212133,"Лидия Аркадьевна Бубликова","01.01.2000"));
         passportsAndNames.put(162348, new Passport(162348, "Иван Михайлович Серебряков","01.01.2000"));
         passportsAndNames.put(8082771, new Passport(8082771, "Дональд Джон Трамп","01.01.2000"));
@@ -541,30 +543,25 @@ public class Main {
         }
     }
 
-    public static  void addInArrayList(List array, Product newProduct) {
+    public static  void addInArrayList(List<Product> array, Product newProduct) {
           if(array.contains(newProduct)){
             throw new ArrayStoreException();
           }
           else {
               array.add(newProduct);
           }
-
-
-
     }
 
-    public static  void addInArrayListRecipe(ArrayList array, Recipe newRecipe) {
+    public static  void addInArrayListRecipe(List<Recipe> array, Recipe newRecipe) {
         if(array.contains(newRecipe)){
             throw new ArrayStoreException();
         }
         else {
             array.add(newRecipe);
         }
-
-
     }
 
-    public static  void deleteFromArrayList(ArrayList array, Product product) {
+    public static  void deleteFromArrayList(List<Product> array, Product product) {
         array.remove(product);
     }
 

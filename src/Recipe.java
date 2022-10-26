@@ -4,12 +4,16 @@ import java.util.Objects;
 public class Recipe {
     private String name;
     private List<Product> productList;
-    private int Amount;
+    private int amount;
 
-    public Recipe(String name, List<Product> productList, int amount) {
+    public Recipe(String name, List<Product> productList) {
         this.name = name;
         this.productList = productList;
-        Amount = amount;
+        int amount = 0;
+        for(Product product:productList){
+            amount+=product.getAmount();
+        }
+        this.amount = amount;
     }
 
     public String getName() {
@@ -21,7 +25,7 @@ public class Recipe {
     }
 
     public int getAmount() {
-        return Amount;
+        return amount;
     }
 
     public void setName(String name) {
@@ -33,7 +37,7 @@ public class Recipe {
     }
 
     public void setAmount(int amount) {
-        Amount = amount;
+        this.amount = amount;
     }
 
     @Override

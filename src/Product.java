@@ -5,8 +5,8 @@ import java.util.Objects;
 
 public class Product {
     private String name;
-    private int Price;
-    private double Amount;
+    private int price;
+    private double amount;
     private boolean bought;
 
     public Product(String name, int price, double amount) {
@@ -43,22 +43,22 @@ public class Product {
         this.name = name;
     }
 
-        public int getPrice() {
-        return Price;
+    public int getPrice() {
+        return price;
     }
 
     public void setPrice(int price) {
 
-        Price = price;
+        this.price = price;
     }
 
     public double getAmount() {
-        return Amount;
+        return amount;
     }
 
     public void setAmount(double amount) {
 
-        Amount = amount;
+        this.amount = amount;
     }
 
     public boolean isBought() {
@@ -73,8 +73,8 @@ public class Product {
     public String toString() {
         return "Product{" +
                 "name='" + name + '\'' +
-                ", Price=" + Price +
-                ", Amount=" + Amount +
+                ", Price=" + price +
+                ", Amount=" + amount +
                 '}';
     }
 
@@ -88,6 +88,6 @@ public class Product {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, Price, Amount, bought);
+        return Objects.hash(name);
     }
 }
