@@ -1,3 +1,4 @@
+import com.sun.jdi.ObjectCollectedException;
 import transport.Drivers.Driver;
 import transport.Drivers.DriverA;
 import transport.Drivers.DriverC;
@@ -11,6 +12,8 @@ import animals.Predator;
 import transport.*;
 import transport.category.*;
 
+import javax.swing.plaf.basic.ComboPopup;
+import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -33,6 +36,7 @@ public class Main {
         //task9();
        // task10();
         task11();
+        //task12();
     }
 
     public static void task1() {
@@ -466,35 +470,50 @@ public class Main {
 
         //list cars
         Set <Transport> listCars = new HashSet<>();
-        listCars.add(car1);
-        listCars.add(truck1);
-        listCars.add(bus1);
+        addInListCars(listCars,car1);
+        addInListCars(listCars,truck1);
+        addInListCars(listCars,bus1);
+        addInListCars(listCars,bus1);
 
         //list drivers
-
         Set<Driver> listDrivers1 = new HashSet<>();
-        listDrivers1.add(driverCar);
-        listDrivers1.add(driverTruck);
-        listDrivers1.add(driverBus);
 
+        addInListDrivers(listDrivers1,driverCar);
+        addInListDrivers(listDrivers1,driverTruck);
+        addInListDrivers(listDrivers1,driverBus);
+        addInListDrivers(listDrivers1,driverCar);
 
         //list sponsor
         Set<Sponsor> listSponsors1 = new HashSet<>();
-        listSponsors1.add(oleg);
-        listSponsors1.add(petr);
-        listSponsors1.add(semen);
+        addInListSponsors(listSponsors1,oleg);
+        addInListSponsors(listSponsors1,petr);
+        addInListSponsors(listSponsors1,semen);
+        addInListSponsors(listSponsors1,oleg);
 
         //list mechanics
         Set<Mechanic> listMechanic1 = new HashSet<>();
-        listMechanic1.add(mechanicCar1);
-        listMechanic1.add(mechanicBus1);
-        listMechanic1.add(mechanicTruck1);
-
+        addInListMechanics(listMechanic1,mechanicCar1);
+        addInListMechanics(listMechanic1,mechanicBus1);
+        addInListMechanics(listMechanic1,mechanicTruck1);
+        addInListMechanics(listMechanic1,mechanicCar1);
 
         for (Transport transport:listCars) {
             System.out.println(transport);
-
         }
+
+        for (Driver driver:listDrivers1) {
+            System.out.println(driver);
+        }
+
+        for (Sponsor sponsor:listSponsors1) {
+            System.out.println(sponsor);
+        }
+
+        for (Mechanic mechanic:listMechanic1) {
+            System.out.println(mechanic);
+        }
+
+
 
         //задание 5
         Set<String> listTasks = new HashSet<>();
@@ -533,6 +552,136 @@ public class Main {
         //задание 7
         //HashSet, т.к. работает с хэш-данными, что ускоряет время для поиска
 
+    }
+    public static void addInListDrivers( Set<Driver> listDrivers, Driver newDriver){
+        if(!listDrivers.equals(newDriver)){
+            listDrivers.add(newDriver);
+        }
+    }
+
+    public static void addInListMechanics( Set<Mechanic> listMechanics, Mechanic newMechanic){
+        if(!listMechanics.equals(newMechanic)){
+            listMechanics.add(newMechanic);
+        }
+    }
+
+    public static void addInListSponsors(Set<Sponsor> listSponsors, Sponsor newSponsor){
+        if(!listSponsors.equals(newSponsor)){
+            listSponsors.add(newSponsor);
+        }
+    }
+
+    public static void addInListCars(Set<Transport> listCars, Transport newCar){
+        if(!listCars.equals(newCar)){
+            listCars.add(newCar);
+        }
+    }
+
+
+    public static void task12(){
+//        /*
+//        Напишите приложение «Телефонный справочник», используя HashMap:
+//        В качестве ключа коллекция принимает значение «Имя и Фамилия», а в качестве значения коллекции — номер телефона.
+//       Добавьте 20 произвольных значений в мапу, выведите все значения в консоль.
+//       */
+//        Map<String,Integer> PhoneBook = new HashMap<>();
+//        PhoneBook.put("Лев Толстой", 5555);
+//        PhoneBook.put("Иван Иванов", 1000);
+//        PhoneBook.put("Семен Семенов", 6666);
+//        PhoneBook.put("Агата Кристи", 7777);
+//        PhoneBook.put("Артур Дойль", 8888);
+//        PhoneBook.put("Анатолий Кузнецов", 9999);
+//        PhoneBook.put("Владимир Владимиров", 1010);
+//
+//        System.out.println(PhoneBook);
+//
+//        /*
+//        Возвращаемся к заданию со списком продуктов и рецептов.
+//        Вам необходимо доработать класс рецептов так, чтобы для каждого продукта мы могли
+//        записать необходимое количество (например, бананы — 2 штуки).
+//        Замените HashSet на HashMap, где в качестве ключа — продукт,
+//        а в качестве значения — необходимое количество. Если количество продукта не было передано, сохраните 1.
+//        Доработайте подсчет суммарной стоимости рецепта — умножьте стоимость каждого продукта на его количество.
+//         */
+//
+//
+//
+//        /*
+//        Создайте коллекцию Map<String, Integer>. Заполните ее произвольными значениями.
+//        Напишите метод, который принимает строку (ключ) и целое число (значение) и
+//        пытается добавить ее в коллекцию по логике:
+//        Если такого ключа нет, то просто добавляет данные в коллекцию.
+//        Если такой ключ уже есть и значения совпадают, то необходимо бросить исключение.
+//        Если такой ключ уже есть, но значения разные, то обновите целое число в коллекции.
+//        Пример: есть HashMap "str1" —> 2.
+//        Если метод принимает "str2" —> 1, добавляем новое значение.
+//        Если метод принимает "str1" —> 2, кидаем исключение.
+//        Если метод принимает "str1" —> 5, обновляем коллекцию (теперь по ключу "str1" будет храниться значение 5).
+//         */
+//
+//        Map<String, Integer> ExampleMap = new HashMap<>();
+//        AddChangeExampleMap(ExampleMap, "Тест", 55);
+//       // AddChangeExampleMap(ExampleMap, "Тест", 55);
+//        AddChangeExampleMap(ExampleMap, "Тест", 56);
+//
+//        System.out.println(ExampleMap);
+//
+//        /*
+//        Создайте Map<String, List<Integer>>.
+//        Заполните ее 5 элементами, где ключ — произвольное значение,
+//        а значение — список, состоящий из 3 случайных чисел в диапазоне от 0 до 1000.
+//
+//        Преобразуйте созданную коллекцию в новую — Map<String, Integer>,
+//        где ключи взяты из первой коллекции, а число — сумма чисел списка. Выведите результат в консоль.м
+//         */
+//
+//        Map<String, List<Integer>> example2 = new HashMap<>();
+//        List<Integer> list1 = new ArrayList<>();
+//        Random rand = new Random();
+//
+//        //заполнение
+//        for (int i = 0; i < 3; i++) {
+//           list1.add(rand.nextInt(1000));
+//        }
+//
+//        example2.put("Example1", list1);
+//
+//        Map<String, Integer> mapExamples = new HashMap<>();
+//        Iterator<Map.Entry<String, List<Integer>>> iterator = example2.entrySet().iterator();
+//        while (iterator.hasNext()) {
+//            Map.Entry<String, List<Integer>> entry = iterator.next();
+//
+//            int amount = 0;
+//            List<Integer> listAmounts = entry.getValue();
+//            for (int i = 0; i < listAmounts.size(); i++) {
+//               amount+=  listAmounts.get(i);
+//            }
+//            mapExamples.put(entry.getKey(), amount);
+//        }
+//        System.out.println(mapExamples);
+//
+//
+//        /*
+//        Создайте Map<Integer, String>, заполните ее 10 произвольными значениями.
+//        Выведите в консоль всё содержимое коллекции в порядке добавления (в формате "ключ:значение").
+//         */
+//        Map<Integer, String> task3 = new LinkedHashMap<>();
+//        task3.put(1, "10");
+//        task3.put(3, "11");
+//        task3.put(2, "12");
+//        System.out.println(task3);
+
+    }
+
+
+    private static void AddChangeExampleMap(Map<String, Integer> ExampleMap, String Key, Integer Value){
+        if(!ExampleMap.containsKey(Key)){
+            ExampleMap.put(Key,Value);
+        }
+        else if(ExampleMap.containsKey(Key)&&ExampleMap.get(Key)==Value){
+            throw new ObjectCollectedException();
+        }
+        else {ExampleMap.put(Key,Value);}
     }
 
     private void process(Collection<Integer> firstCollection, List<Integer> list) {
