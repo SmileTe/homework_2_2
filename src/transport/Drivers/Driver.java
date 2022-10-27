@@ -42,7 +42,7 @@ public abstract class Driver <T extends Transport>{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Driver<?> driver = (Driver<?>) o;
-        return name.equals(driver.name) && transport.equals(driver.transport);
+        return Objects.equals(name, driver.name) && Objects.equals(transport, driver.transport);
     }
 
     @Override

@@ -446,7 +446,7 @@ public class Main {
 
         Driver<Car> driverCar = new DriverA("водитель легкового авто", true, 5,  new CategoryA("A"));
         Driver<Truck> driverTruck = new DriverC("водитель грузового авто", true, 15,  new CategoryC("C"));
-        Driver<Bus> driverBus = new DriverD("водитель лавтобуса", true, 25,  new CategoryD("D"));
+        Driver<Bus> driverBus = new DriverD("водитель автобуса", true, 25,  new CategoryD("D"));
 
         Sponsor oleg = new Sponsor("Oleg",50 );
         Sponsor petr = new Sponsor("Petr",100 );
@@ -470,32 +470,35 @@ public class Main {
 
         //list cars
         Set <Transport> listCars = new HashSet<>();
-        addInListCars(listCars,car1);
-        addInListCars(listCars,truck1);
-        addInListCars(listCars,bus1);
-        addInListCars(listCars,bus1);
+        listCars.add(car1);
+        listCars.add(new Car("Лада", "Гранта", 1500, Car.TypeBody.SEDAN));
+        listCars.add(truck1);
+        listCars.add(bus1);
+
 
         //list drivers
         Set<Driver> listDrivers1 = new HashSet<>();
+        listDrivers1.add(driverCar);
+        listDrivers1.add(new DriverA("водитель легкового авто", true, 5,  new CategoryA("A")));
+        listDrivers1.add(driverTruck);
+        listDrivers1.add(driverBus);
 
-        addInListDrivers(listDrivers1,driverCar);
-        addInListDrivers(listDrivers1,driverTruck);
-        addInListDrivers(listDrivers1,driverBus);
-        addInListDrivers(listDrivers1,driverCar);
 
         //list sponsor
         Set<Sponsor> listSponsors1 = new HashSet<>();
-        addInListSponsors(listSponsors1,oleg);
-        addInListSponsors(listSponsors1,petr);
-        addInListSponsors(listSponsors1,semen);
-        addInListSponsors(listSponsors1,oleg);
+        listSponsors1.add(oleg);
+        listSponsors1.add(new Sponsor("Oleg",50 ));
+        listSponsors1.add(petr);
+        listSponsors1.add(semen);
+
 
         //list mechanics
         Set<Mechanic> listMechanic1 = new HashSet<>();
-        addInListMechanics(listMechanic1,mechanicCar1);
-        addInListMechanics(listMechanic1,mechanicBus1);
-        addInListMechanics(listMechanic1,mechanicTruck1);
-        addInListMechanics(listMechanic1,mechanicCar1);
+        listMechanic1.add(mechanicCar1);
+        listMechanic1.add(new Mechanic<Car>("Механик по автомобилям младший", "Danone"));
+        listMechanic1.add(mechanicBus1);
+        listMechanic1.add(mechanicTruck1);
+
 
         for (Transport transport:listCars) {
             System.out.println(transport);
@@ -552,29 +555,6 @@ public class Main {
         //задание 7
         //HashSet, т.к. работает с хэш-данными, что ускоряет время для поиска
 
-    }
-    public static void addInListDrivers( Set<Driver> listDrivers, Driver newDriver){
-        if(!listDrivers.equals(newDriver)){
-            listDrivers.add(newDriver);
-        }
-    }
-
-    public static void addInListMechanics( Set<Mechanic> listMechanics, Mechanic newMechanic){
-        if(!listMechanics.equals(newMechanic)){
-            listMechanics.add(newMechanic);
-        }
-    }
-
-    public static void addInListSponsors(Set<Sponsor> listSponsors, Sponsor newSponsor){
-        if(!listSponsors.equals(newSponsor)){
-            listSponsors.add(newSponsor);
-        }
-    }
-
-    public static void addInListCars(Set<Transport> listCars, Transport newCar){
-        if(!listCars.equals(newCar)){
-            listCars.add(newCar);
-        }
     }
 
 
