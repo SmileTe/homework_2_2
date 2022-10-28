@@ -1,17 +1,18 @@
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class Recipe {
     private String name;
-    private List<Product> productList;
+    private Map<Product,Integer> productList;
     private int amount;
 
-    public Recipe(String name, List<Product> productList) {
+    public Recipe(String name, Map<Product,Integer> productList) {
         this.name = name;
         this.productList = productList;
         int amount = 0;
-        for(Product product:productList){
-            amount+=product.getAmount();
+        for(Map.Entry<Product,Integer> product:productList.entrySet()){
+            amount+=product.getKey().getAmount();
         }
         this.amount = amount;
     }
@@ -20,7 +21,7 @@ public class Recipe {
         return name;
     }
 
-    public List<Product> getProductList() {
+    public Map<Product,Integer> getProductList() {
         return productList;
     }
 
@@ -32,7 +33,7 @@ public class Recipe {
         this.name = name;
     }
 
-    public void setProductList(List<Product> productList) {
+    public void setProductList(Map<Product,Integer> productList) {
         this.productList = productList;
     }
 
@@ -51,5 +52,14 @@ public class Recipe {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    @Override
+    public String toString() {
+        return "Recipe{" +
+                "name='" + name + '\'' +
+                ", productList=" + productList +
+                ", amount=" + amount +
+                '}';
     }
 }

@@ -35,8 +35,8 @@ public class Main {
         //task8();
         //task9();
        // task10();
-        task11();
-        //task12();
+       //task11();
+        task12();
     }
 
     public static void task1() {
@@ -417,9 +417,9 @@ public class Main {
         addInArrayList(arrayForSandwich,  bread);
 
 
-        List<Recipe> arrayRecipes= new ArrayList<>();
-        addInArrayListRecipe(arrayRecipes, new Recipe("Пирожное картошка",arrayForPotato));
-        addInArrayListRecipe(arrayRecipes, new Recipe("Бутерброд",arrayForSandwich));
+//        List<Recipe> arrayRecipes= new ArrayList<>();
+//        addInArrayListRecipe(arrayRecipes, new Recipe("Пирожное картошка",arrayForPotato));
+//        addInArrayListRecipe(arrayRecipes, new Recipe("Бутерброд",arrayForSandwich));
 
         //задание 3
 
@@ -559,98 +559,138 @@ public class Main {
 
 
     public static void task12(){
-//        /*
-//        Напишите приложение «Телефонный справочник», используя HashMap:
-//        В качестве ключа коллекция принимает значение «Имя и Фамилия», а в качестве значения коллекции — номер телефона.
-//       Добавьте 20 произвольных значений в мапу, выведите все значения в консоль.
-//       */
-//        Map<String,Integer> PhoneBook = new HashMap<>();
-//        PhoneBook.put("Лев Толстой", 5555);
-//        PhoneBook.put("Иван Иванов", 1000);
-//        PhoneBook.put("Семен Семенов", 6666);
-//        PhoneBook.put("Агата Кристи", 7777);
-//        PhoneBook.put("Артур Дойль", 8888);
-//        PhoneBook.put("Анатолий Кузнецов", 9999);
-//        PhoneBook.put("Владимир Владимиров", 1010);
-//
-//        System.out.println(PhoneBook);
-//
-//        /*
-//        Возвращаемся к заданию со списком продуктов и рецептов.
-//        Вам необходимо доработать класс рецептов так, чтобы для каждого продукта мы могли
-//        записать необходимое количество (например, бананы — 2 штуки).
-//        Замените HashSet на HashMap, где в качестве ключа — продукт,
-//        а в качестве значения — необходимое количество. Если количество продукта не было передано, сохраните 1.
-//        Доработайте подсчет суммарной стоимости рецепта — умножьте стоимость каждого продукта на его количество.
-//         */
-//
-//
-//
-//        /*
-//        Создайте коллекцию Map<String, Integer>. Заполните ее произвольными значениями.
-//        Напишите метод, который принимает строку (ключ) и целое число (значение) и
-//        пытается добавить ее в коллекцию по логике:
-//        Если такого ключа нет, то просто добавляет данные в коллекцию.
-//        Если такой ключ уже есть и значения совпадают, то необходимо бросить исключение.
-//        Если такой ключ уже есть, но значения разные, то обновите целое число в коллекции.
-//        Пример: есть HashMap "str1" —> 2.
-//        Если метод принимает "str2" —> 1, добавляем новое значение.
-//        Если метод принимает "str1" —> 2, кидаем исключение.
-//        Если метод принимает "str1" —> 5, обновляем коллекцию (теперь по ключу "str1" будет храниться значение 5).
-//         */
-//
-//        Map<String, Integer> ExampleMap = new HashMap<>();
-//        AddChangeExampleMap(ExampleMap, "Тест", 55);
-//       // AddChangeExampleMap(ExampleMap, "Тест", 55);
-//        AddChangeExampleMap(ExampleMap, "Тест", 56);
-//
-//        System.out.println(ExampleMap);
-//
-//        /*
-//        Создайте Map<String, List<Integer>>.
-//        Заполните ее 5 элементами, где ключ — произвольное значение,
-//        а значение — список, состоящий из 3 случайных чисел в диапазоне от 0 до 1000.
-//
-//        Преобразуйте созданную коллекцию в новую — Map<String, Integer>,
-//        где ключи взяты из первой коллекции, а число — сумма чисел списка. Выведите результат в консоль.м
-//         */
-//
-//        Map<String, List<Integer>> example2 = new HashMap<>();
-//        List<Integer> list1 = new ArrayList<>();
-//        Random rand = new Random();
-//
-//        //заполнение
-//        for (int i = 0; i < 3; i++) {
-//           list1.add(rand.nextInt(1000));
-//        }
-//
-//        example2.put("Example1", list1);
-//
-//        Map<String, Integer> mapExamples = new HashMap<>();
-//        Iterator<Map.Entry<String, List<Integer>>> iterator = example2.entrySet().iterator();
-//        while (iterator.hasNext()) {
-//            Map.Entry<String, List<Integer>> entry = iterator.next();
-//
-//            int amount = 0;
-//            List<Integer> listAmounts = entry.getValue();
-//            for (int i = 0; i < listAmounts.size(); i++) {
-//               amount+=  listAmounts.get(i);
-//            }
-//            mapExamples.put(entry.getKey(), amount);
-//        }
-//        System.out.println(mapExamples);
-//
-//
-//        /*
-//        Создайте Map<Integer, String>, заполните ее 10 произвольными значениями.
-//        Выведите в консоль всё содержимое коллекции в порядке добавления (в формате "ключ:значение").
-//         */
-//        Map<Integer, String> task3 = new LinkedHashMap<>();
-//        task3.put(1, "10");
-//        task3.put(3, "11");
-//        task3.put(2, "12");
-//        System.out.println(task3);
+        /*
+        Напишите приложение «Телефонный справочник», используя HashMap:
+        В качестве ключа коллекция принимает значение «Имя и Фамилия», а в качестве значения коллекции — номер телефона.
+       Добавьте 20 произвольных значений в мапу, выведите все значения в консоль.
+       */
+        Map<String,Integer> PhoneBook = new HashMap<>();
+        PhoneBook.put("Лев Толстой Иванович", 5555);
+        PhoneBook.put("Иван Иванов Иванович", 1000);
+        PhoneBook.put("Семен Семенов Иванович", 6666);
+        PhoneBook.put("Агата Кристи Ивановна", 7777);
+        PhoneBook.put("Артур Дойль Иванович", 8888);
+        PhoneBook.put("Анатолий Кузнецов Иванович", 9999);
+        PhoneBook.put("Владимир Владимиров Иванович", 1010);
 
+        PhoneBook.put("Лев Толстой Петрович", 5555);
+        PhoneBook.put("Иван Иванов Петрович", 1000);
+        PhoneBook.put("Семен Семенов Петрович", 6666);
+        PhoneBook.put("Агата Кристи Петровна", 7777);
+        PhoneBook.put("Артур Дойль Петрович", 8888);
+        PhoneBook.put("Анатолий Кузнецов Петрович", 9999);
+        PhoneBook.put("Владимир Владимиров Петрович", 1010);
+
+        PhoneBook.put("Лев Толстой Сидорович", 5555);
+        PhoneBook.put("Иван Иванов Сидорович", 1000);
+        PhoneBook.put("Семен Семенов Сидорович", 6666);
+        PhoneBook.put("Агата Кристи Сидоровна", 7777);
+        PhoneBook.put("Артур Дойль Сидорович", 8888);
+        PhoneBook.put("Анатолий Кузнецов Сидорович", 9999);
+
+        System.out.println(PhoneBook);
+
+        /*
+        Возвращаемся к заданию со списком продуктов и рецептов.
+        Вам необходимо доработать класс рецептов так, чтобы для каждого продукта мы могли
+        записать необходимое количество (например, бананы — 2 штуки).
+        Замените HashSet на HashMap, где в качестве ключа — продукт,
+        а в качестве значения — необходимое количество. Если количество продукта не было передано, сохраните 1.
+        Доработайте подсчет суммарной стоимости рецепта — умножьте стоимость каждого продукта на его количество.
+         */
+        /// рецепт 1
+        Product cookie = new Product("Печенье", 150, 200);
+        Product condencedMilk = new Product("сгущенное молоко", 200, 200);
+        Product cocoa = new Product("Какао", 150, 200);
+        Map<Product, Integer> arrayForPotato  = new HashMap<>();
+        arrayForPotato.put(cookie, 200);
+        arrayForPotato.put(condencedMilk, 200);
+        arrayForPotato.put(cocoa, 200);
+
+        List<Recipe> arrayRecipes= new ArrayList<>();
+        addInArrayListRecipe(arrayRecipes, new Recipe("Пирожное картошка",arrayForPotato));
+
+        System.out.println(arrayRecipes);
+
+
+        /*
+        Создайте коллекцию Map<String, Integer>. Заполните ее произвольными значениями.
+        Напишите метод, который принимает строку (ключ) и целое число (значение) и
+        пытается добавить ее в коллекцию по логике:
+        Если такого ключа нет, то просто добавляет данные в коллекцию.
+        Если такой ключ уже есть и значения совпадают, то необходимо бросить исключение.
+        Если такой ключ уже есть, но значения разные, то обновите целое число в коллекции.
+        Пример: есть HashMap "str1" —> 2.
+        Если метод принимает "str2" —> 1, добавляем новое значение.
+        Если метод принимает "str1" —> 2, кидаем исключение.
+        Если метод принимает "str1" —> 5, обновляем коллекцию (теперь по ключу "str1" будет храниться значение 5).
+         */
+
+        Map<String, Integer> ExampleMap = new HashMap<>();
+        AddChangeExampleMap(ExampleMap, "Тест", 55);
+       // AddChangeExampleMap(ExampleMap, "Тест", 55);
+        AddChangeExampleMap(ExampleMap, "Тест", 56);
+
+        System.out.println(ExampleMap);
+
+        /*
+        Создайте Map<String, List<Integer>>.
+        Заполните ее 5 элементами, где ключ — произвольное значение,
+        а значение — список, состоящий из 3 случайных чисел в диапазоне от 0 до 1000.
+
+        Преобразуйте созданную коллекцию в новую — Map<String, Integer>,
+        где ключи взяты из первой коллекции, а число — сумма чисел списка. Выведите результат в консоль.м
+         */
+
+        Map<String, List<Integer>> example2 = new HashMap<>();
+
+
+        //заполнение
+        addRandomNumbersInList(example2, 1);
+        addRandomNumbersInList(example2, 2);
+        addRandomNumbersInList(example2, 3);
+
+
+
+        Map<String, Integer> mapExamples = new HashMap<>();
+        Iterator<Map.Entry<String, List<Integer>>> iterator = example2.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<String, List<Integer>> entry = iterator.next();
+
+            int amount = 0;
+            List<Integer> listAmounts = entry.getValue();
+            for (int i = 0; i < listAmounts.size(); i++) {
+               amount+=  listAmounts.get(i);
+            }
+            mapExamples.put(entry.getKey(), amount);
+        }
+        System.out.println(mapExamples);
+
+
+        /*
+        Создайте Map<Integer, String>, заполните ее 10 произвольными значениями.
+        Выведите в консоль всё содержимое коллекции в порядке добавления (в формате "ключ:значение").
+         */
+        Map<Integer, String> task3 = new LinkedHashMap<>();
+
+        Random rand = new Random();
+        for (int i = 1; i <= 10; i++) {
+            task3.put(i, ""+rand.nextInt(1000));
+        }
+        System.out.println(task3);
+
+    }
+
+    private static void addRandomNumbersInList( Map<String, List<Integer>> example2, int numbers){
+        Random rand = new Random();
+        List<Integer> list1 = new ArrayList<>();
+
+
+        for (int i = 0; i < 3; i++) {
+            list1.add(rand.nextInt(1000));
+        }
+
+        example2.put("Example" + numbers, list1);
     }
 
 
