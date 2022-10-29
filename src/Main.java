@@ -626,12 +626,12 @@ public class Main {
         Если метод принимает "str1" —> 5, обновляем коллекцию (теперь по ключу "str1" будет храниться значение 5).
          */
 
-        Map<String, Integer> ExampleMap = new HashMap<>();
-        AddChangeExampleMap(ExampleMap, "Тест", 55);
+        Map<String, Integer> exampleMap = new HashMap<>();
+        addChangeExampleMap(exampleMap, "Тест", 55);
        // AddChangeExampleMap(ExampleMap, "Тест", 55);
-        AddChangeExampleMap(ExampleMap, "Тест", 56);
+        addChangeExampleMap(exampleMap, "Тест", 56);
 
-        System.out.println(ExampleMap);
+        System.out.println(exampleMap);
 
         /*
         Создайте Map<String, List<Integer>>.
@@ -694,14 +694,14 @@ public class Main {
     }
 
 
-    private static void AddChangeExampleMap(Map<String, Integer> ExampleMap, String Key, Integer Value){
-        if(!ExampleMap.containsKey(Key)){
-            ExampleMap.put(Key,Value);
+    private static void addChangeExampleMap(Map<String, Integer> exampleMap, String key, Integer value){
+        if(!exampleMap.containsKey(key)){
+            exampleMap.put(key,value);
         }
-        else if(ExampleMap.containsKey(Key)&&ExampleMap.get(Key)==Value){
+        else if(exampleMap.containsKey(key)&&exampleMap.get(key).equals(value)){
             throw new ObjectCollectedException();
         }
-        else {ExampleMap.put(Key,Value);}
+        else {exampleMap.put(key,value);}
     }
 
     private void process(Collection<Integer> firstCollection, List<Integer> list) {
